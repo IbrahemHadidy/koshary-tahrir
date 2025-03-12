@@ -1,0 +1,15 @@
+@import 'tailwindcss';
+
+body {
+  @apply text-gray-900;
+}
+
+.team-member img {
+  transition:
+    grayscale 0.3s ease,
+    transform 0.3s ease;
+}
+
+.team-member:hover img {
+  transform: scale(1.05);
+}

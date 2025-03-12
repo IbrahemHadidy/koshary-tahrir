@@ -1,0 +1,122 @@
+{
+  "header": {
+    "title": "Koshary Al-Tahrir",
+    "menu": "Menu",
+    "cart": "Cart",
+    "branches": "Branches",
+    "about": "About Us",
+    "contact": "Contact Us"
+  },
+  "footer": {
+    "brandName": "Koshary Al-Tahrir",
+    "tagline": "Serving authentic Egyptian flavors since 1952",
+    "quickLinks": "Quick Links",
+    "menu": "Menu",
+    "branches": "Branches",
+    "about": "About Us",
+    "contact": "Contact",
+    "phone": "19719",
+    "support": "24/7 Support",
+    "newsletter": "Newsletter",
+    "emailPlaceholder": "Enter your email",
+    "subscribe": "Subscribe",
+    "copyright": "© 2024 Koshary Al-Tahrir. All rights reserved."
+  },
+  "landing": {
+    "welcome": "Welcome to Koshary Al-Tahrir",
+    "description": "Experience the authentic taste of Egypt's favorite dish, made with the finest ingredients and rich flavors.",
+    "viewMenu": "View Menu",
+    "findUs": "Find Us",
+    "aboutUs": "Our Story"
+  },
+  "menu": {
+    "title": "Our Menu",
+    "searchPlaceholder": "Search...",
+    "addToCart": "Add to Cart",
+    "currency": "EGP",
+    "categories": {
+      "koshary": "Koshary",
+      "drinks": "Drinks",
+      "desserts": "Desserts",
+      "additional": "Additionals"
+    }
+  },
+  "product": {
+    "notFound": "Product not found",
+    "includes": "Includes",
+    "addToCart": "Add to Cart",
+    "currency": "EGP",
+    "backToMenu": "Back to Menu"
+  },
+  "cart": {
+    "title": "Your Cart",
+    "empty": "Your cart is empty",
+    "backToMenu": "Back to Menu",
+    "remove": "Remove",
+    "clearCart": "Clear Cart",
+    "total": "Total",
+    "proceed": "Proceed to Checkout",
+    "vatIncluded": "VAT included",
+    "orderNow": "Order Now",
+    "continueShopping": "Continue Shopping",
+    "currency": "EGP",
+    "kosharyRequired": "You must have at least one koshary in your cart before ordering",
+    "checkout": "Complete Your Order",
+    "location": "Delivery Location",
+    "locationPlaceholder": "Enter your delivery address",
+    "notes": "Additional Notes",
+    "notesPlaceholder": "Any special instructions?",
+    "submitOrder": "Submit Order",
+    "back": "Go Back",
+    "orderSuccess": "Order placed successfully! Thank you!",
+    "locationRequired": "Please enter your delivery location"
+  },
+  "branches": {
+    "title": "Our Branches",
+    "subtitle": "Keep in touch with us",
+    "viewOnMap": "View on Map"
+  },
+  "about": {
+    "title": "Our Story",
+    "ourStory": "From Humble Beginnings",
+    "storyContent": "Koshary Al-Tahrir started as a small eatery with a simple yet ambitious goal: to bring authentic, high-quality koshary to everyone. Over the years, we have grown into a beloved brand, cherished for our dedication to taste, quality, and tradition.",
+    "coreValues": "Our Core Values",
+    "quality": "Premium Quality",
+    "qualityDesc": "We use only the finest, freshest ingredients to ensure every dish is flavorful, nutritious, and satisfying.",
+    "tradition": "Traditional Recipes",
+    "traditionDesc": "Our recipes have been passed down through generations, preserving the authentic taste of true Egyptian koshary.",
+    "consistency": "Consistent Taste",
+    "consistencyDesc": "We maintain strict quality control to ensure that every meal you enjoy tastes just as delicious as the last one.",
+    "ourTeam": "Meet Our Team",
+    "ourTeamDesc": "Our passionate chefs and dedicated staff work tirelessly to bring you the best koshary experience possible.",
+    "masterChef": "Master Chef",
+    "pastryChef": "Pastry Chef",
+    "manager": "Restaurant Manager",
+    "visitUs": "Visit Our Flagship",
+    "visitUsDesc": "Come and experience the warmth of Egyptian hospitality at our flagship branch.",
+    "address": "123 Tahrir Square, Cairo",
+    "openingHours": "Daily 10:00 AM - 12:00 AM",
+    "contactForm": "Get in Touch",
+    "name": "Your Name",
+    "email": "Your Email",
+    "message": "Your Message",
+    "sendMessage": "Send Message"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "getInTouch": "Get in Touch",
+    "sendMessage": "Send Us a Message",
+    "visitUs": "Visit Us",
+    "address": "123 Tahrir Square, Cairo, Egypt",
+    "callUs": "Call Us",
+    "emailUs": "Email Us",
+    "openingHours": "Opening Hours",
+    "hours": "Daily 10:00 AM - 12:00 AM",
+    "name": "Your Name",
+    "email": "Your Email",
+    "subject": "Subject",
+    "message": "Your Message",
+    "phone": "19719",
+    "emailAddress": "contact@kosharyaltahrir.com"
+  }
+}
