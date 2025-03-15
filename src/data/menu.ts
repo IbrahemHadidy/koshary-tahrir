@@ -1,4 +1,4 @@
-type Additional = {
+export type Additional = {
   type: string;
   quantity: number;
 };
