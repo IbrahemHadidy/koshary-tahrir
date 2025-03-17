@@ -14,7 +14,7 @@ interface DetailsProps {
 
 export default function Details({ name, price, details }: DetailsProps) {
   const t = useTranslations('product');
-  const locale = useLocale() as 'en' | 'ar';
+  const locale = useLocale();
 
   return (
     <div>

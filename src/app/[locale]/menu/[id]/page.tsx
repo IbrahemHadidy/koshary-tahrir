@@ -11,7 +11,7 @@ import Gallery from './_components/Gallery';
 export default function ProductPage() {
   const { id } = useParams();
   const t = useTranslations('product');
-  const locale = useLocale() as 'en' | 'ar';
+  const locale = useLocale();
 
   const product = menu.find((item) => item.id === id);
 

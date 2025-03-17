@@ -13,7 +13,7 @@ export default function Actions({ product }: ActionsProps) {
   const { addToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
   const t = useTranslations('product');
-  const locale = useLocale() as 'en' | 'ar';
+  const locale = useLocale();
 
   return (
     <div className="space-y-6">

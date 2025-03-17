@@ -17,7 +17,7 @@ interface CartItemProps {
 export default function CartItem({ item, quantity }: CartItemProps) {
   const { updateQuantity, removeFromCart } = useCart();
   const t = useTranslations('cart');
-  const locale = useLocale() as 'en' | 'ar';
+  const locale = useLocale();
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center p-6">

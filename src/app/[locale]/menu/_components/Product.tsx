@@ -13,7 +13,7 @@ interface ProductProps {
 
 export default function Product({ item }: ProductProps) {
   const [quantity, setQuantity] = useState<number>(1);
-  const locale = useLocale() as 'en' | 'ar';
+  const locale = useLocale();
   const t = useTranslations('menu');
   const { addToCart } = useCart();
 
