@@ -1,25 +1,16 @@
-import type { Metadata } from 'next';
-import type { ReactNode } from 'react';
-import { Space_Grotesk } from 'next/font/google';
-import './globals.css';
-import Header from '@components/Header';
 import Footer from '@components/Footer';
-import { notFound } from 'next/navigation';
-import { routing } from '@i18n/routing';
-import { getMessages } from 'next-intl/server';
-import { NextIntlClientProvider } from 'next-intl';
+import Header from '@components/Header';
 import CartProvider from '@context/CartContext';
+import { routing } from '@i18n/routing';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
+import { Space_Grotesk } from 'next/font/google';
+import { notFound } from 'next/navigation';
+import type { ReactNode } from 'react';
 import { ToastContainer } from 'react-toastify';
+import './globals.css';
 
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
-
-export const metadata: Metadata = {
-  title: 'Koshary Al-Tahrir | Authentic Egyptian Cuisine',
-  description: 'Experience the taste of authentic Egyptian koshary since 1952',
-  icons: {
-    icon: '/images/favicon.ico',
-  },
-};
 
 export default async function RootLayout({
   children,

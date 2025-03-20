@@ -1,19 +1,30 @@
-'use client';
+import metadata from '@data/metadata';
+import type { Metadata } from 'next';
+import About from './_components/About';
 
-import Contact from './_components/Contact';
-import CoreValues from './_components/CoreValues';
-import Hero from './_components/Hero';
-import Story from './_components/Story';
-import Team from './_components/Team';
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: 'en' | 'ar' }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+
+  return {
+    title: metadata.about[locale]?.title,
+    description: metadata.about[locale]?.description,
+    alternates: {
+      canonical: `https://kosharyaltahrir.com/${locale}/about`,
+    },
+    openGraph: {
+      title: metadata.about[locale]?.title,
+      description: metadata.about[locale]?.description,
+      url: `https://kosharyaltahrir.com/${locale}/about`,
+      siteName: 'Koshary Al-Tahrir',
+      type: 'website',
+    },
+  };
+}
 
 export default function AboutPage() {
-  return (
-    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <Hero />
-      <Story />
-      <CoreValues />
-      <Team />
-      <Contact />
-    </div>
-  );
+  return <About />;
 }

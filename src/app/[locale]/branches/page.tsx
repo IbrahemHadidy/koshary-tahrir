@@ -1,33 +1,30 @@
-'use client';
+import metadata from '@data/metadata';
+import type { Metadata } from 'next';
+import Branches from './_components/Branches';
 
-import { branches } from '@data/branches';
-import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
-import Branch from './_components/Branch';
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: 'en' | 'ar' }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+
+  return {
+    title: metadata.branches[locale]?.title,
+    description: metadata.branches[locale]?.description,
+    alternates: {
+      canonical: `https://kosharyaltahrir.com/${locale}/branches`,
+    },
+    openGraph: {
+      title: metadata.branches[locale]?.title,
+      description: metadata.branches[locale]?.description,
+      url: `https://kosharyaltahrir.com/${locale}/branches`,
+      siteName: 'Koshary Al-Tahrir',
+      type: 'website',
+    },
+  };
+}
 
 export default function BranchesPage() {
-  const t = useTranslations('branches');
-
-  return (
-    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      {/* Branches title and subtitle */}
-      <div className="mb-16 text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mb-4 text-4xl font-bold text-gray-900"
-        >
-          {t('title')}
-        </motion.h1>
-        <p className="mx-auto max-w-2xl text-gray-600">{t('subtitle')}</p>
-      </div>
-
-      {/* Branches grid */}
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {branches.map((branch, idx) => (
-          <Branch key={branch.id} branch={branch} idx={idx} />
-        ))}
-      </div>
-    </div>
-  );
+  return <Branches />;
 }

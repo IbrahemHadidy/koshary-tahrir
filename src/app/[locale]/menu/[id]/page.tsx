@@ -1,38 +1,45 @@
-'use client';
-
 import { menu } from '@data/menu';
-import { motion } from 'framer-motion';
-import { useLocale, useTranslations } from 'next-intl';
-import { useParams } from 'next/navigation';
-import Actions from './_components/Actions';
-import Details from './_components/Details';
-import Gallery from './_components/Gallery';
+import metadata from '@data/metadata';
+import { Metadata } from 'next';
+import Product from './_components/Product';
 
-export default function ProductPage() {
-  const { id } = useParams();
-  const t = useTranslations('product');
-  const locale = useLocale();
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: 'en' | 'ar'; id: string }>;
+}): Promise<Metadata> {
+  const { locale, id } = await params;
 
   const product = menu.find((item) => item.id === id);
 
   if (!product) {
-    return <p className="text-center text-red-500">{t('notFound')}</p>;
+    return {
+      title: metadata.product[locale]?.title.replace('{name}', 'Unknown Product'),
+      description: metadata.product[locale]?.description.replace('{name}', 'this product'),
+      icons: {
+        icon: '/images/favicon.ico',
+      },
+    };
   }
 
-  return (
-    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="grid grid-cols-1 gap-12 lg:grid-cols-2"
-      >
-        <Gallery name={product.name[locale]} images={product.images} />
+  return {
+    title: metadata.product[locale]?.title.replace('{name}', product.name[locale]),
+    description: metadata.product[locale]?.description.replace(
+      '{name}',
+      product.description[locale]
+    ),
+    icons: {
+      icon: '/images/favicon.ico',
+    },
+    openGraph: {
+      title: product.name[locale],
+      description: product.description[locale],
+      url: `https://kosharyaltahrir.com/${locale}/product/${id}`,
+      images: [{ url: product.images[0], width: 1200, height: 630 }],
+    },
+  };
+}
 
-        <div className="space-y-8">
-          <Details name={product.name} price={product.price} details={product.details} />
-          <Actions product={product} />
-        </div>
-      </motion.div>
-    </div>
-  );
+export default function ProductPage() {
+  return <Product />;
 }

@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from 'next-intl';
 
 interface DetailsProps {
   name: { ar: string; en: string };
+  description: { ar: string; en: string };
   price: number;
   details?: {
     en: Additional[];
@@ -12,13 +13,14 @@ interface DetailsProps {
   };
 }
 
-export default function Details({ name, price, details }: DetailsProps) {
+export default function Details({ name, description, price, details }: DetailsProps) {
   const t = useTranslations('product');
   const locale = useLocale();
 
   return (
     <div>
       <h1 className="mb-4 text-4xl font-bold text-gray-900">{name[locale]}</h1>
+      <p className="mb-4 leading-relaxed text-gray-700">{description[locale]}</p>
       <p className="mb-6 text-3xl font-semibold text-amber-600">
         {formatNumber(price, locale)} {t('currency')}
       </p>

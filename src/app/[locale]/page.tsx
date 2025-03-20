@@ -1,81 +1,40 @@
-'use client';
+import metadata from '@data/metadata';
+import { Metadata } from 'next';
+import Home from './_components/Home';
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { useLocale, useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
-import hero from '@images/hero.jpg';
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: 'en' | 'ar' }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
 
-export default function LandingPage() {
-  const t = useTranslations('landing');
-  const locale = useLocale();
+  return {
+    title: metadata.home[locale]?.title,
+    description: metadata.home[locale]?.description,
+    icons: {
+      icon: '/images/favicon.ico',
+    },
+    alternates: {
+      canonical: `https://kosharyaltahrir.com/${locale}`,
+    },
+    openGraph: {
+      title: metadata.home[locale]?.title,
+      description: metadata.home[locale]?.description,
+      url: `https://kosharyaltahrir.com/${locale}`,
+      siteName: 'Koshary Al-Tahrir',
+      type: 'website',
+      images: [
+        {
+          url: '/images/og-image.jpg',
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+  };
+}
 
-  return (
-    <section className="relative flex h-screen items-center justify-center">
-      <div className="absolute inset-0 z-0">
-        <Image src={hero} alt="Koshary Al-Tahrir" fill loading="lazy" className="object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60" />
-      </div>
-
-      <div className="relative z-10 max-w-4xl px-4 text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="font-logo mb-6 text-5xl font-bold text-white [text-shadow:_2px_2px_6px_rgba(0,0,0,0.7)] md:text-7xl"
-        >
-          {t('welcome')}
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="mx-auto mb-8 max-w-2xl text-xl text-amber-100 [text-shadow:_2px_2px_6px_rgba(0,0,0,0.7)]"
-        >
-          {t('description')}
-        </motion.p>
-
-        <motion.div
-          className="flex flex-col justify-center gap-4 sm:flex-row"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-        >
-          {/* Primary CTA Buttons */}
-          <div className="flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
-            <Link href={`/${locale}/menu`} className="w-full sm:w-auto">
-              <button className="w-full cursor-pointer rounded-lg bg-amber-600 px-8 py-4 font-medium text-white shadow-lg shadow-amber-700/40 transition-all duration-300 hover:bg-amber-700 hover:shadow-amber-700/50 active:scale-95">
-                {t('viewMenu')} {locale === 'en' ? '→' : '←'}
-              </button>
-            </Link>
-
-            <Link href={`/${locale}/branches`} className="w-full sm:w-auto">
-              <button className="w-full cursor-pointer rounded-lg border border-white/20 bg-white/10 px-8 py-4 font-medium text-white shadow-md shadow-white/20 transition-all duration-300 hover:bg-white/20 hover:shadow-white/40 active:scale-95">
-                {t('findUs')} 📍
-              </button>
-            </Link>
-          </div>
-
-          {/* About Us Link */}
-          <motion.div
-            className="relative mt-4 flex items-center justify-center sm:mt-0 sm:ml-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-          >
-            <div className="absolute hidden h-6 w-px bg-white/20 sm:block ltr:-left-4 rtl:-right-1" />
-            <Link
-              href={`/${locale}/about`}
-              className="group relative text-lg font-semibold text-amber-300 transition-colors hover:text-amber-400"
-            >
-              <span className="relative px-2 py-1">
-                {t('aboutUs')}
-                <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-amber-400 transition-all duration-300 [text-shadow:_2px_2px_6px_rgba(0,0,0,0.7)] group-hover:w-full" />
-              </span>
-            </Link>
-          </motion.div>
-        </motion.div>
-      </div>
-    </section>
-  );
+export default function HomePage() {
+  return <Home />;
 }
