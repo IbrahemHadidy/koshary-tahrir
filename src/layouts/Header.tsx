@@ -1,7 +1,7 @@
 'use client';
 
 import { Link, usePathname, useRouter } from '@i18n/navigation';
-import Logo from '@images/logo.png';
+import Logo from '@images/logo.webp';
 import { Menu, ShoppingCart, X } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';

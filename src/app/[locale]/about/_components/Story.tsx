@@ -1,4 +1,4 @@
-import Interior from '@images/branches/branch-2.jpg';
+import Interior from '@images/branches/branch-2.webp';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';

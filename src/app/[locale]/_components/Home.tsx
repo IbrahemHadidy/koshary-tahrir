@@ -1,7 +1,7 @@
 'use client';
 
 import { Link } from '@i18n/navigation';
-import hero from '@images/hero.jpg';
+import hero from '@images/hero.webp';
 import { motion } from 'framer-motion';
 import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';

@@ -1,6 +1,6 @@
 'use client';
 
-import Logo from '@images/logo.png';
+import Logo from '@images/logo.webp';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 

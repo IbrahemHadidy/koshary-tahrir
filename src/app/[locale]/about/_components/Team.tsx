@@ -1,6 +1,6 @@
-import Team1 from '@images/people/person-1.jpg';
-import Team2 from '@images/people/person-2.jpg';
-import Team3 from '@images/people/person-3.jpg';
+import Team1 from '@images/people/person-1.webp';
+import Team2 from '@images/people/person-2.webp';
+import Team3 from '@images/people/person-3.webp';
 import type en from '@messages/en.json';
 import { motion } from 'framer-motion';
 import { useLocale, useTranslations } from 'next-intl';

@@ -19,7 +19,7 @@ export const branches: Branch[] = [
   {
     id: 'branch-1',
     name: { en: 'Tahrir Square', ar: 'ميدان التحرير' },
-    image: '/images/branches/branch-1.jpg',
+    image: '/images/branches/branch-1.webp',
     address: {
       en: 'Tahrir Square, Downtown, Cairo, Egypt',
       ar: 'ميدان التحرير، وسط البلد، القاهرة، مصر',
@@ -29,7 +29,7 @@ export const branches: Branch[] = [
   {
     id: 'branch-2',
     name: { en: 'Nasr City', ar: 'مدينة نصر' },
-    image: '/images/branches/branch-2.jpg',
+    image: '/images/branches/branch-2.webp',
     address: {
       en: 'Omar Ibn El-Khattab St, Nasr City, Cairo, Egypt',
       ar: 'شارع عمر بن الخطاب، مدينة نصر، القاهرة، مصر',
@@ -49,7 +49,7 @@ export const branches: Branch[] = [
   {
     id: 'branch-4',
     name: { en: 'Dokki', ar: 'الدقي' },
-    image: '/images/branches/branch-4.jpg',
+    image: '/images/branches/branch-4.webp',
     address: {
       en: 'Dokki, Giza, Egypt',
       ar: 'الدقي، الجيزة، مصر',
@@ -69,7 +69,7 @@ export const branches: Branch[] = [
   {
     id: 'branch-6',
     name: { en: 'Al Wurud', ar: 'الورود' },
-    image: '/images/branches/branch-6.jpg',
+    image: '/images/branches/branch-6.webp',
     address: {
       en: 'King Abdullah Road, Al Wurud, Riyadh, Saudi Arabia',
       ar: 'طريق الملك عبد الله، الورود، الرياض، المملكة العربية السعودية',

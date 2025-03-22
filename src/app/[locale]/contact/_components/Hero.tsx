@@ -1,4 +1,4 @@
-import ContactImage from '@images/contact-hero.jpg';
+import ContactImage from '@images/contact-hero.webp';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 
