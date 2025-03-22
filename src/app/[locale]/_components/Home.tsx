@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <section className="relative flex h-screen items-center justify-center">
       <div className="absolute inset-0 z-0">
-        <Image src={hero} alt="Koshary Al-Tahrir" fill loading="lazy" className="object-cover" />
+        <Image src={hero} alt="hero" fill loading="lazy" className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60" />
       </div>
 
@@ -46,7 +46,7 @@ export default function Home() {
             <Link href="/menu" className="w-full sm:w-auto">
               <button
                 name="menu"
-                className="w-full cursor-pointer rounded-lg bg-amber-600 px-8 py-4 font-medium text-white shadow-lg shadow-amber-700/40 transition-all duration-300 hover:bg-amber-700 hover:shadow-amber-700/50 active:scale-95"
+                className="w-full cursor-pointer rounded-lg bg-amber-600 px-8 py-4 font-semibold text-white shadow-lg shadow-amber-700/40 transition-all duration-300 hover:bg-amber-700 hover:shadow-amber-700/50 active:scale-95"
               >
                 {t('viewMenu')} {locale === 'en' ? '→' : '←'}
               </button>
@@ -55,7 +55,7 @@ export default function Home() {
             <Link href="/branches" className="w-full sm:w-auto">
               <button
                 name="branches"
-                className="w-full cursor-pointer rounded-lg border border-white/20 bg-white/10 px-8 py-4 font-medium text-white shadow-md shadow-white/20 transition-all duration-300 hover:bg-white/20 hover:shadow-white/40 active:scale-95"
+                className="w-full cursor-pointer rounded-lg border border-white/20 bg-white/10 px-8 py-4 font-semibold text-white shadow-md shadow-white/20 transition-all duration-300 hover:bg-white/20 hover:shadow-white/40 active:scale-95"
               >
                 {t('findUs')} 📍
               </button>

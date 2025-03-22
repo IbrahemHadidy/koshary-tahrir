@@ -39,7 +39,7 @@ export default function AboutPage() {
             <div className="relative mx-auto mb-6 aspect-square h-64 w-64 overflow-hidden rounded-full shadow-lg">
               <Image
                 src={member.image}
-                alt={member.name.en}
+                alt={member.role}
                 fill
                 className="object-cover grayscale transition-all group-hover:grayscale-0"
               />

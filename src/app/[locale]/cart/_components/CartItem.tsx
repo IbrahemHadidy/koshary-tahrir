@@ -24,7 +24,7 @@ export default function CartItem({ item, quantity }: CartItemProps) {
       <Link href={`/menu/${item.id}`} className="relative h-24 w-24 overflow-hidden rounded-lg">
         <Image
           src={item.images[0]}
-          alt={item.name.en}
+          alt="product"
           fill
           loading="lazy"
           className="object-contain px-1"

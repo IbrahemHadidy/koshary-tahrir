@@ -46,13 +46,13 @@ export default function Header() {
             href="/"
             className="absolute left-1/2 flex -translate-x-1/2 transform items-center gap-2 md:hidden"
           >
-            <Image src={Logo} alt="Koshary Al-Tahrir" loading="lazy" className="h-10 w-10" />
+            <Image src={Logo} alt="logo" loading="lazy" className="h-10 w-10" />
             <span className="font-logo text-2xl font-bold text-gray-900">{t('title')}</span>
           </Link>
 
           {/* Desktop Logo + Title */}
           <Link href="/" className="hidden items-center gap-2 md:flex">
-            <Image src={Logo} alt="Koshary Al-Tahrir" className="h-10 w-10" />
+            <Image src={Logo} alt="logo" className="h-10 w-10" />
             <span className="font-logo text-2xl font-bold text-gray-900">{t('title')}</span>
           </Link>
 
@@ -85,6 +85,7 @@ export default function Header() {
             {/* Cart Icon */}
             <Link
               href="/cart"
+              aria-label="Cart"
               className="relative rounded-full p-2 transition-colors hover:bg-amber-50"
             >
               <ShoppingCart

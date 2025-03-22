@@ -3,11 +3,10 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 interface GalleryProps {
-  name: string;
   images: string[];
 }
 
-export default function Gallery({ name, images }: GalleryProps) {
+export default function Gallery({ images }: GalleryProps) {
   const [selectedImage, setSelectedImage] = useState(0);
 
   return (
@@ -22,7 +21,7 @@ export default function Gallery({ name, images }: GalleryProps) {
       >
         <Image
           src={images[selectedImage]}
-          alt={name}
+          alt="image"
           fill
           className="bg-white object-contain p-6"
           loading="lazy"
@@ -50,7 +49,7 @@ export default function Gallery({ name, images }: GalleryProps) {
                   : 'border-gray-200 hover:border-amber-400'
               }`}
             >
-              <Image src={img} alt={name} fill className="object-contain" />
+              <Image src={img} alt="img-thumb" fill className="object-contain" />
             </motion.button>
           ))}
         </div>

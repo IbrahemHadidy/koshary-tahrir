@@ -16,12 +16,13 @@ export async function generateMetadata({
       icon: '/images/favicon.ico',
     },
     alternates: {
-      canonical: `https://kosharyaltahrir.com/${locale}`,
+      canonical: `https://koshary-tahrir.vercel.app/${locale}`,
     },
+    metadataBase: new URL('https://koshary-tahrir.vercel.app'),
     openGraph: {
       title: metadata.home[locale]?.title,
       description: metadata.home[locale]?.description,
-      url: `https://kosharyaltahrir.com/${locale}`,
+      url: `https://koshary-tahrir.vercel.app/${locale}`,
       siteName: 'Koshary Al-Tahrir',
       type: 'website',
       images: [

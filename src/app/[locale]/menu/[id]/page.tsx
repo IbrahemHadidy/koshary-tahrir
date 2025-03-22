@@ -16,8 +16,12 @@ export async function generateMetadata({
     return {
       title: metadata.product[locale]?.title.replace('{name}', 'Unknown Product'),
       description: metadata.product[locale]?.description.replace('{name}', 'this product'),
+      metadataBase: new URL('https://koshary-tahrir.vercel.app'),
       icons: {
         icon: '/images/favicon.ico',
+      },
+      alternates: {
+        canonical: `https://koshary-tahrir.vercel.app/${locale}`,
       },
     };
   }
@@ -28,13 +32,17 @@ export async function generateMetadata({
       '{name}',
       product.description[locale]
     ),
+    metadataBase: new URL('https://koshary-tahrir.vercel.app'),
     icons: {
       icon: '/images/favicon.ico',
+    },
+    alternates: {
+      canonical: `https://koshary-tahrir.vercel.app/${locale}`,
     },
     openGraph: {
       title: product.name[locale],
       description: product.description[locale],
-      url: `https://kosharyaltahrir.com/${locale}/product/${id}`,
+      url: `https://koshary-tahrir.vercel.app/${locale}/menu/${id}`,
       images: [{ url: product.images[0], width: 1200, height: 630 }],
     },
   };

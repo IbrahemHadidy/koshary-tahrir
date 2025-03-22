@@ -2,7 +2,7 @@
 
 import { menu } from '@data/menu';
 import { motion } from 'framer-motion';
-import { useLocale, useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { useParams } from 'next/navigation';
 import Actions from './Actions';
 import Details from './Details';
@@ -11,7 +11,6 @@ import Gallery from './Gallery';
 export default function Product() {
   const { id } = useParams();
   const t = useTranslations('product');
-  const locale = useLocale();
 
   const product = menu.find((item) => item.id === id);
 
@@ -26,7 +25,7 @@ export default function Product() {
         animate={{ opacity: 1 }}
         className="grid grid-cols-1 gap-12 lg:grid-cols-2"
       >
-        <Gallery name={product.name[locale]} images={product.images} />
+        <Gallery images={product.images} />
 
         <div className="space-y-8">
           <Details

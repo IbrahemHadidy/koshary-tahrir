@@ -1,4 +1,4 @@
-import Interior from '@images/branches/branch-2.webp';
+import Exterior from '@images/branches/branch-2.webp';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
@@ -20,7 +20,7 @@ export default function Story() {
           <p className="text-lg leading-relaxed text-gray-600">{t('storyContent')}</p>
         </div>
         <div className="relative aspect-video overflow-hidden rounded-xl shadow-lg">
-          <Image src={Interior} alt="Restaurant interior" fill className="object-cover" />
+          <Image src={Exterior} alt="exterior" fill className="object-cover" />
         </div>
       </motion.div>
     </section>

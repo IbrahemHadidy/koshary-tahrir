@@ -19,13 +19,7 @@ export default function Loading() {
             ease: 'easeInOut',
           }}
         >
-          <Image
-            src={Logo}
-            alt="Koshary Al-Tahrir Logo"
-            width={80}
-            height={80}
-            className="rounded-full"
-          />
+          <Image src={Logo} alt="logo" width={80} height={80} className="rounded-full" />
         </motion.div>
 
         {/* Modern Loading Indicator */}
