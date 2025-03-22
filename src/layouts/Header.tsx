@@ -35,6 +35,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            name="menu"
             className="-ml-2 cursor-pointer p-2 text-gray-600 hover:text-amber-600 md:hidden"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -96,6 +97,7 @@ export default function Header() {
             {/* Language Switcher */}
             <button
               onClick={() => switchLanguage(isRTL ? 'en' : 'ar')}
+              name="language"
               className="cursor-pointer rounded-md bg-amber-100 px-3 py-1 text-sm font-medium text-amber-800 transition-colors hover:bg-amber-200"
             >
               {isRTL ? 'EN' : 'ع'}

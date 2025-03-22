@@ -45,6 +45,7 @@ export default function CartItem({ item, quantity }: CartItemProps) {
           <button
             onClick={() => updateQuantity(item.id, quantity - 1)}
             disabled={quantity === 1}
+            name="decrement"
             className="cursor-pointer px-4 py-2 text-gray-600 hover:bg-amber-50 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-transparent ltr:rounded-l-full rtl:rounded-r-full"
           >
             -
@@ -53,6 +54,7 @@ export default function CartItem({ item, quantity }: CartItemProps) {
           <button
             onClick={() => updateQuantity(item.id, quantity + 1)}
             disabled={quantity === 99}
+            name="increment"
             className="cursor-pointer px-4 py-2 text-gray-600 hover:bg-amber-50 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-transparent ltr:rounded-r-full rtl:rounded-l-full"
           >
             +
@@ -60,6 +62,7 @@ export default function CartItem({ item, quantity }: CartItemProps) {
         </div>
         <button
           onClick={() => removeFromCart(item.id)}
+          name="remove"
           className="cursor-pointer text-red-500 transition-colors hover:text-red-700"
         >
           <Trash2 className="h-5 w-5" />

@@ -107,7 +107,11 @@ export default function Footer() {
               placeholder={t('emailPlaceholder')}
               className="flex-1 rounded-lg border border-gray-700 bg-gray-800 px-4 py-2 focus:border-amber-500 focus:outline-none"
             />
-            <button className="cursor-pointer rounded-lg bg-amber-600 px-4 py-2 transition-colors hover:bg-amber-700">
+            <button
+              type="submit"
+              name="subscribe"
+              className="cursor-pointer rounded-lg bg-amber-600 px-4 py-2 transition-colors hover:bg-amber-700"
+            >
               {t('subscribe')}
             </button>
           </form>

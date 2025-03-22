@@ -44,13 +44,19 @@ export default function Home() {
           {/* Primary CTA Buttons */}
           <div className="flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
             <Link href="/menu" className="w-full sm:w-auto">
-              <button className="w-full cursor-pointer rounded-lg bg-amber-600 px-8 py-4 font-medium text-white shadow-lg shadow-amber-700/40 transition-all duration-300 hover:bg-amber-700 hover:shadow-amber-700/50 active:scale-95">
+              <button
+                name="menu"
+                className="w-full cursor-pointer rounded-lg bg-amber-600 px-8 py-4 font-medium text-white shadow-lg shadow-amber-700/40 transition-all duration-300 hover:bg-amber-700 hover:shadow-amber-700/50 active:scale-95"
+              >
                 {t('viewMenu')} {locale === 'en' ? '→' : '←'}
               </button>
             </Link>
 
             <Link href="/branches" className="w-full sm:w-auto">
-              <button className="w-full cursor-pointer rounded-lg border border-white/20 bg-white/10 px-8 py-4 font-medium text-white shadow-md shadow-white/20 transition-all duration-300 hover:bg-white/20 hover:shadow-white/40 active:scale-95">
+              <button
+                name="branches"
+                className="w-full cursor-pointer rounded-lg border border-white/20 bg-white/10 px-8 py-4 font-medium text-white shadow-md shadow-white/20 transition-all duration-300 hover:bg-white/20 hover:shadow-white/40 active:scale-95"
+              >
                 {t('findUs')} 📍
               </button>
             </Link>

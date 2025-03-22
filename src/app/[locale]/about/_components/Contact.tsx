@@ -38,7 +38,10 @@ export default function Contact() {
               rows={4}
               className="w-full rounded-lg border border-gray-200 px-4 py-3 focus:ring-2 focus:ring-amber-500 focus:outline-none"
             />
-            <button className="w-full cursor-pointer rounded-lg bg-amber-600 py-3 text-white transition-colors hover:bg-amber-700">
+            <button
+              name="send"
+              className="w-full cursor-pointer rounded-lg bg-amber-600 py-3 text-white transition-colors hover:bg-amber-700"
+            >
               {t('sendMessage')}
             </button>
           </form>

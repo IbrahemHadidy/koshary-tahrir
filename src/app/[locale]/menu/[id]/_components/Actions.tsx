@@ -22,6 +22,7 @@ export default function Actions({ product }: ActionsProps) {
           <button
             onClick={() => setQuantity((q) => Math.max(1, q - 1))}
             disabled={quantity === 1}
+            name="decrement"
             className="cursor-pointer px-5 py-3 text-gray-600 hover:bg-amber-50 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-transparent ltr:rounded-l-full rtl:rounded-r-full"
           >
             -
@@ -30,6 +31,7 @@ export default function Actions({ product }: ActionsProps) {
           <button
             onClick={() => setQuantity((q) => q + 1)}
             disabled={quantity === 99}
+            name="increment"
             className="cursor-pointer px-5 py-3 text-gray-600 hover:bg-amber-50 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-transparent ltr:rounded-r-full rtl:rounded-l-full"
           >
             +
@@ -38,6 +40,7 @@ export default function Actions({ product }: ActionsProps) {
 
         <button
           onClick={() => addToCart(product, quantity)}
+          name="addToCart"
           className="flex-1 cursor-pointer rounded-full bg-amber-600 px-8 py-4 font-semibold text-white transition-colors hover:bg-amber-700"
         >
           {t('addToCart')}

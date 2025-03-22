@@ -31,6 +31,7 @@ export default function Form() {
         </div>
         <button
           type="submit"
+          name="send"
           className="w-full rounded-lg bg-amber-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-amber-700"
         >
           {t('sendMessage')}

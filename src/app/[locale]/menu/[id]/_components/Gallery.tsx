@@ -43,6 +43,7 @@ export default function Gallery({ name, images }: GalleryProps) {
               onClick={() => setSelectedImage(index)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              name="image"
               className={`relative aspect-square max-h-32 cursor-pointer overflow-hidden rounded-lg border-2 bg-white transition-all ${
                 selectedImage === index
                   ? 'scale-105 border-amber-600'

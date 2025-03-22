@@ -52,6 +52,7 @@ export default function Product({ item }: ProductProps) {
             <button
               onClick={() => handleQuantityChange(quantity - 1)}
               disabled={quantity === 1}
+              name="decrement"
               className="cursor-pointer px-4 py-2 text-gray-600 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-transparent ltr:rounded-l-full rtl:rounded-r-full"
             >
               -
@@ -60,6 +61,7 @@ export default function Product({ item }: ProductProps) {
             <button
               onClick={() => handleQuantityChange(quantity + 1)}
               disabled={quantity === 99}
+              name="increment"
               className="cursor-pointer px-4 py-2 text-gray-600 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-transparent ltr:rounded-r-full rtl:rounded-l-full"
             >
               +
@@ -67,6 +69,7 @@ export default function Product({ item }: ProductProps) {
           </div>
           <button
             onClick={() => addToCart(item, quantity)}
+            name="addToCart"
             className="flex-1 cursor-pointer rounded-full bg-amber-600 px-6 py-2 text-white transition-colors hover:bg-amber-700"
           >
             {t('addToCart')}

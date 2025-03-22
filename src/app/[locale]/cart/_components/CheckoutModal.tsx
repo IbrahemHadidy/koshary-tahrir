@@ -76,12 +76,14 @@ export default function CheckoutModal({
           <div className="mt-8 flex justify-end gap-3">
             <button
               onClick={() => setShowCheckoutModal(false)}
+              name="back"
               className="cursor-pointer rounded-lg px-6 py-2 text-gray-600 hover:bg-gray-50"
             >
               {t('back')}
             </button>
             <button
               onClick={handleOrderSubmit}
+              name="submit"
               className="cursor-pointer rounded-lg bg-amber-600 px-6 py-2 text-white hover:bg-amber-700"
             >
               {t('submitOrder')}
