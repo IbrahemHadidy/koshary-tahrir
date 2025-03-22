@@ -20,7 +20,9 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
+      "@messages/*": ["./messages/*"],
       "@components/*": ["./src/components/*"],
+      "@layouts/*": ["./src/layouts/*"],
       "@data/*": ["./src/data/*"],
       "@context/*": ["./src/context/*"],
       "@hooks/*": ["./src/hooks/*"],

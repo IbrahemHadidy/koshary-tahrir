@@ -1,16 +1,24 @@
 import Team1 from '@images/people/person-1.jpg';
 import Team2 from '@images/people/person-2.jpg';
 import Team3 from '@images/people/person-3.jpg';
+import type en from '@messages/en.json';
 import { motion } from 'framer-motion';
 import { useLocale, useTranslations } from 'next-intl';
-import Image from 'next/image';
+import Image, { type StaticImageData } from 'next/image';
+
+type TeamMember = {
+  id: number;
+  name: { en: string; ar: string };
+  role: keyof typeof en.about;
+  image: StaticImageData;
+};
 
 export default function AboutPage() {
   const t = useTranslations('about');
   const locale = useLocale();
   const isRTL = locale === 'ar';
 
-  const teamMembers = [
+  const teamMembers: TeamMember[] = [
     { id: 1, name: { en: 'Ahmed Hassan', ar: 'أحمد حسن' }, role: 'masterChef', image: Team1 },
     { id: 2, name: { en: 'Mohamed Ali', ar: 'محمد علي' }, role: 'pastryChef', image: Team2 },
     { id: 3, name: { en: 'Omar Khalil', ar: 'عمر خليل' }, role: 'manager', image: Team3 },

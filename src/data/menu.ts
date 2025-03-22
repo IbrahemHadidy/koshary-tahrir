@@ -1,3 +1,5 @@
+import type en from '@messages/en.json';
+
 export type Additional = {
   type: string;
   quantity: number;
@@ -5,7 +7,7 @@ export type Additional = {
 
 export type MenuItem = {
   id: string;
-  category: 'koshary' | 'additional' | 'drinks' | 'desserts';
+  category: keyof typeof en.menu.categories;
   name: {
     en: string;
     ar: string;

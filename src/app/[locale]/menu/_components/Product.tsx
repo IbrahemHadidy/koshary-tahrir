@@ -1,10 +1,10 @@
 import { useCart } from '@context/CartContext';
 import type { MenuItem } from '@data/menu';
+import { Link } from '@i18n/navigation';
 import formatNumber from '@utils/formatNumber';
 import { motion } from 'framer-motion';
 import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useState } from 'react';
 
 interface ProductProps {
@@ -27,7 +27,7 @@ export default function Product({ item }: ProductProps) {
       animate={{ opacity: 1, y: 0 }}
       className="overflow-hidden rounded-xl bg-white shadow-md transition-shadow hover:shadow-lg"
     >
-      <Link href={`/${locale}/menu/${item.id}`}>
+      <Link href={`/menu/${item.id}`}>
         <div className="relative h-64">
           <Image
             src={item.images[0]}

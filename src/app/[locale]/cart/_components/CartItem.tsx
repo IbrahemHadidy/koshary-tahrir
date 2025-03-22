@@ -2,12 +2,12 @@
 
 import { useCart } from '@context/CartContext';
 import type { MenuItem } from '@data/menu';
+import { Link } from '@i18n/navigation';
 import formatNumber from '@utils/formatNumber';
 import { motion } from 'framer-motion';
 import { Trash2 } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
-import Link from 'next/link';
 
 interface CartItemProps {
   item: MenuItem;
@@ -16,15 +16,12 @@ interface CartItemProps {
 
 export default function CartItem({ item, quantity }: CartItemProps) {
   const { updateQuantity, removeFromCart } = useCart();
-  const t = useTranslations('cart');
   const locale = useLocale();
+  const t = useTranslations('cart');
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center p-6">
-      <Link
-        href={`/${locale}/menu/${item.id}`}
-        className="relative h-24 w-24 overflow-hidden rounded-lg"
-      >
+      <Link href={`/menu/${item.id}`} className="relative h-24 w-24 overflow-hidden rounded-lg">
         <Image
           src={item.images[0]}
           alt={item.name.en}
@@ -35,7 +32,7 @@ export default function CartItem({ item, quantity }: CartItemProps) {
       </Link>
 
       <div className="ml-6 flex-1">
-        <Link href={`/${locale}/menu/${item.id}`}>
+        <Link href={`/menu/${item.id}`}>
           <h3 className="text-xl font-semibold text-gray-900">{item.name[locale]}</h3>
         </Link>
         <p className="text-gray-600">

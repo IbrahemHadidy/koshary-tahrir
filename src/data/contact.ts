@@ -1,10 +1,13 @@
+import type en from '@messages/en.json';
 import { Clock, Mail, MapPin, Phone, type LucideProps } from 'lucide-react';
 import type { ForwardRefExoticComponent, RefAttributes } from 'react';
 
+type ContactTranslationKey = keyof typeof en.contact;
+
 export type ContactMethod = {
   icon: ForwardRefExoticComponent<Omit<LucideProps, 'ref'> & RefAttributes<SVGSVGElement>>;
-  title: string;
-  content: string;
+  title: ContactTranslationKey;
+  content: ContactTranslationKey;
   link?: string;
   dir?: 'ltr' | 'rtl';
 };

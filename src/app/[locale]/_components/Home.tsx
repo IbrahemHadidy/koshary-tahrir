@@ -1,14 +1,14 @@
 'use client';
 
+import { Link } from '@i18n/navigation';
 import hero from '@images/hero.jpg';
 import { motion } from 'framer-motion';
 import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
-import Link from 'next/link';
 
 export default function Home() {
-  const t = useTranslations('home');
   const locale = useLocale();
+  const t = useTranslations('home');
 
   return (
     <section className="relative flex h-screen items-center justify-center">
@@ -43,13 +43,13 @@ export default function Home() {
         >
           {/* Primary CTA Buttons */}
           <div className="flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
-            <Link href={`/${locale}/menu`} className="w-full sm:w-auto">
+            <Link href="/menu" className="w-full sm:w-auto">
               <button className="w-full cursor-pointer rounded-lg bg-amber-600 px-8 py-4 font-medium text-white shadow-lg shadow-amber-700/40 transition-all duration-300 hover:bg-amber-700 hover:shadow-amber-700/50 active:scale-95">
                 {t('viewMenu')} {locale === 'en' ? '→' : '←'}
               </button>
             </Link>
 
-            <Link href={`/${locale}/branches`} className="w-full sm:w-auto">
+            <Link href="/branches" className="w-full sm:w-auto">
               <button className="w-full cursor-pointer rounded-lg border border-white/20 bg-white/10 px-8 py-4 font-medium text-white shadow-md shadow-white/20 transition-all duration-300 hover:bg-white/20 hover:shadow-white/40 active:scale-95">
                 {t('findUs')} 📍
               </button>
@@ -65,7 +65,7 @@ export default function Home() {
           >
             <div className="absolute hidden h-6 w-px bg-white/20 sm:block ltr:-left-4 rtl:-right-1" />
             <Link
-              href={`/${locale}/about`}
+              href="/about"
               className="group relative text-lg font-semibold text-amber-300 transition-colors hover:text-amber-400"
             >
               <span className="relative px-2 py-1">

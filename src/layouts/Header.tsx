@@ -1,12 +1,11 @@
 'use client';
 
-import { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { useLocale, useTranslations } from 'next-intl';
-import { usePathname, useRouter } from 'next/navigation';
-import { Menu, X, ShoppingCart } from 'lucide-react';
+import { Link, usePathname, useRouter } from '@i18n/navigation';
 import Logo from '@images/logo.png';
+import { Menu, ShoppingCart, X } from 'lucide-react';
+import { useLocale, useTranslations } from 'next-intl';
+import Image from 'next/image';
+import { useState } from 'react';
 
 export default function Header() {
   const router = useRouter();
@@ -16,18 +15,18 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isRTL = locale === 'ar';
 
-  const switchLanguage = (lang: string) => {
-    router.push(`/${lang}${pathname.substring(3)}`);
+  const switchLanguage = (lang: 'en' | 'ar') => {
+    router.push(pathname, { locale: lang });
   };
 
   const navigation = [
-    { name: t('menu'), href: `/${locale}/menu` },
-    { name: t('branches'), href: `/${locale}/branches` },
-    { name: t('about'), href: `/${locale}/about` },
-    { name: t('contact'), href: `/${locale}/contact` },
+    { name: t('menu'), href: '/menu' },
+    { name: t('branches'), href: '/branches' },
+    { name: t('about'), href: '/about' },
+    { name: t('contact'), href: '/contact' },
   ];
 
-  const isCartPage = pathname === `/${locale}/cart`;
+  const isCartPage = pathname.includes('/cart');
 
   return (
     <header className="sticky top-0 z-50 bg-white/90 shadow-sm backdrop-blur-md">
@@ -43,7 +42,7 @@ export default function Header() {
 
           {/* Centered Title for Mobile */}
           <Link
-            href={`/${locale}`}
+            href="/"
             className="absolute left-1/2 flex -translate-x-1/2 transform items-center gap-2 md:hidden"
           >
             <Image src={Logo} alt="Koshary Al-Tahrir" loading="lazy" className="h-10 w-10" />
@@ -51,7 +50,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Logo + Title */}
-          <Link href={`/${locale}`} className="hidden items-center gap-2 md:flex">
+          <Link href="/" className="hidden items-center gap-2 md:flex">
             <Image src={Logo} alt="Koshary Al-Tahrir" className="h-10 w-10" />
             <span className="font-logo text-2xl font-bold text-gray-900">{t('title')}</span>
           </Link>
@@ -59,7 +58,7 @@ export default function Header() {
           {/* Desktop Navigation */}
           <nav className="absolute left-1/2 hidden -translate-x-1/2 transform items-center gap-8 md:flex">
             {navigation.map((item) => {
-              const isActive = pathname === item.href;
+              const isActive = pathname.includes(item.href);
 
               return (
                 <Link
@@ -84,7 +83,7 @@ export default function Header() {
           <div className="flex items-center gap-4">
             {/* Cart Icon */}
             <Link
-              href={`/${locale}/cart`}
+              href="/cart"
               className="relative rounded-full p-2 transition-colors hover:bg-amber-50"
             >
               <ShoppingCart
@@ -120,7 +119,7 @@ export default function Header() {
               ))}
               {/* Add Cart Link to Mobile Menu */}
               <Link
-                href={`/${locale}/cart`}
+                href="/cart"
                 className="block rounded-lg px-4 py-2 text-gray-700 hover:bg-amber-50"
                 onClick={() => setIsMenuOpen(false)}
               >

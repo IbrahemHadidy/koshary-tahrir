@@ -1,8 +1,7 @@
-import { useLocale, useTranslations } from 'next-intl';
-import Link from 'next/link';
+import { Link } from '@i18n/navigation';
+import { useTranslations } from 'next-intl';
 
 export default function Footer() {
-  const locale = useLocale();
   const t = useTranslations('footer');
 
   return (
@@ -63,17 +62,17 @@ export default function Footer() {
           <h4 className="mb-4 font-medium text-white">{t('quickLinks')}</h4>
           <ul className="space-y-2 text-sm">
             <li>
-              <Link href={`/${locale}/menu`} className="transition-colors hover:text-amber-500">
+              <Link href="/menu" className="transition-colors hover:text-amber-500">
                 {t('menu')}
               </Link>
             </li>
             <li>
-              <Link href={`/${locale}/branches`} className="transition-colors hover:text-amber-500">
+              <Link href="/branches" className="transition-colors hover:text-amber-500">
                 {t('branches')}
               </Link>
             </li>
             <li>
-              <Link href={`/${locale}/about`} className="transition-colors hover:text-amber-500">
+              <Link href="/about" className="transition-colors hover:text-amber-500">
                 {t('about')}
               </Link>
             </li>

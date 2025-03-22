@@ -1,11 +1,21 @@
+import type en from '@messages/en.json';
 import { motion } from 'framer-motion';
-import { Clock, HeartHandshake, Utensils } from 'lucide-react';
+import { Clock, HeartHandshake, type LucideProps, Utensils } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import type { ForwardRefExoticComponent, RefAttributes } from 'react';
+
+type AboutTranslatioKey = keyof typeof en.about;
+
+type CoreValue = {
+  icon: ForwardRefExoticComponent<Omit<LucideProps, 'ref'> & RefAttributes<SVGSVGElement>>;
+  title: AboutTranslatioKey;
+  description: AboutTranslatioKey;
+};
 
 export default function CoreValues() {
   const t = useTranslations('about');
 
-  const coreValues = [
+  const coreValues: CoreValue[] = [
     { icon: Utensils, title: 'quality', description: 'qualityDesc' },
     { icon: HeartHandshake, title: 'tradition', description: 'traditionDesc' },
     { icon: Clock, title: 'consistency', description: 'consistencyDesc' },

@@ -1,10 +1,10 @@
 'use client';
 
 import { useCart } from '@context/CartContext';
+import { Link } from '@i18n/navigation';
 import formatNumber from '@utils/formatNumber';
 import { Trash2 } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
-import Link from 'next/link';
 
 interface CartActionsProps {
   setShowCheckoutModal: (value: boolean) => void;
@@ -12,8 +12,8 @@ interface CartActionsProps {
 
 export default function CartActions({ setShowCheckoutModal }: CartActionsProps) {
   const { cart, clearCart } = useCart();
-  const t = useTranslations('cart');
   const locale = useLocale();
+  const t = useTranslations('cart');
 
   const hasKoshary = cart.some((item) => item.item.category === 'koshary');
   const totalPrice = cart.reduce(
@@ -43,7 +43,7 @@ export default function CartActions({ setShowCheckoutModal }: CartActionsProps) 
 
         <div className="flex justify-end gap-4">
           <Link
-            href={`/${locale}/menu`}
+            href="/menu"
             className="rounded-full border border-gray-300 px-6 py-3 text-gray-600 transition-colors hover:border-amber-600 hover:text-amber-600"
           >
             {t('continueShopping')}

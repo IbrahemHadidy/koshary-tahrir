@@ -1,8 +1,8 @@
 import { useCart } from '@context/CartContext';
 import type { MenuItem } from '@data/menu';
+import { Link } from '@i18n/navigation';
 import formatNumber from '@utils/formatNumber';
 import { useLocale, useTranslations } from 'next-intl';
-import Link from 'next/link';
 import { useState } from 'react';
 
 interface ActionsProps {
@@ -45,7 +45,7 @@ export default function Actions({ product }: ActionsProps) {
       </div>
 
       <Link
-        href={`/${locale}/menu`}
+        href="/menu"
         className="block w-full rounded-full border border-gray-300 px-8 py-4 text-center text-gray-600 transition-colors hover:border-amber-600 hover:text-amber-600"
       >
         {t('backToMenu')}
