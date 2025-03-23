@@ -15,7 +15,6 @@ export default async function Home() {
           alt="hero"
           fill
           priority
-          placeholder="blur"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
           className="object-cover"
         />

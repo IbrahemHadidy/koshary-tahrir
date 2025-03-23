@@ -10,9 +10,8 @@ interface ContactMethodProps {
 export default function Method({ method, idx, t }: ContactMethodProps) {
   return (
     <div
-      className={`group rounded-xl bg-white p-6 shadow-md transition-all duration-300 hover:shadow-lg ${
-        method.link ? 'cursor-pointer' : ''
-      } animate-[slideUpFade_0.5s_ease-out_${idx * 0.1}s_both]`}
+      className="group rounded-xl bg-white p-6 shadow-md transition-all duration-300 hover:shadow-lg"
+      style={{ animation: `slideUpFade 0.5s ease-out ${Number((idx * 0.1).toFixed(1))}s both` }}
     >
       <a
         href={method.link}

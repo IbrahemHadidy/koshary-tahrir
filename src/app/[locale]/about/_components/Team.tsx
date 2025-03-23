@@ -14,10 +14,13 @@ export default function Team({ t, locale }: TeamProps) {
     <section className="mb-24">
       <h2 className="mb-12 text-center text-3xl font-bold">{t('ourTeam')}</h2>
       <div className="grid gap-8 md:grid-cols-3">
-        {teamMembers.map((member, index) => (
+        {teamMembers.map((member, idx) => (
           <div
             key={member.id}
-            className={`group text-center animate-[slideUpFade_0.5s_ease-out_${index * 0.1}s_both]`}
+            className="group text-center"
+            style={{
+              animation: `slideUpFade 0.5s ease-out ${Number((idx * 0.1).toFixed(1))}s both`,
+            }}
           >
             <div className="relative mx-auto mb-6 aspect-square h-64 w-64 overflow-hidden rounded-full shadow-lg">
               <Image
@@ -25,7 +28,6 @@ export default function Team({ t, locale }: TeamProps) {
                 alt={member.role}
                 fill
                 loading="lazy"
-                placeholder="blur"
                 className="object-cover grayscale transition-all group-hover:grayscale-0"
               />
             </div>

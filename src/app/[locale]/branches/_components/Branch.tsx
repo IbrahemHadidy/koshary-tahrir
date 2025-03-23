@@ -12,16 +12,14 @@ interface BranchProps {
 
 export default function BranchesPage({ branch, idx, t, locale }: BranchProps) {
   const isRTL = locale === 'ar';
-  {
-    /* Image container with zoom effect */
-  }
 
   return (
     <a
       href={`https://www.google.com/maps/search/?api=1&query=${branch.coordinates.lat},${branch.coordinates.lng}`}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group relative overflow-hidden rounded-xl bg-white shadow-md transition-all duration-300 hover:shadow-lg animate-[slideUpFade_0.5s_ease-out_${idx * 0.1}s_both] hover:-translate-y-[5px]`}
+      className="group relative overflow-hidden rounded-xl bg-white shadow-md transition-all duration-300 hover:bg-amber-50 hover:text-amber-600 hover:shadow-lg"
+      style={{ animation: `slideUpFade 0.5s ease-out ${Number((idx * 0.1).toFixed(1))}s both` }}
     >
       <div className="relative h-48 overflow-hidden">
         {/* Image container with zoom effect */}
@@ -31,7 +29,6 @@ export default function BranchesPage({ branch, idx, t, locale }: BranchProps) {
             alt="branch"
             fill
             loading="lazy"
-            placeholder="blur"
             className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
           <div
@@ -41,7 +38,6 @@ export default function BranchesPage({ branch, idx, t, locale }: BranchProps) {
                 'linear-gradient(to bottom, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.5) 90%, rgba(255, 255, 255, 1)), linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%)',
             }}
           />
-          <div className="absolute right-0 -bottom-1.5 left-0 z-2 h-2 bg-white" />
         </div>
 
         {/* MapPin - Animation tied to parent hover */}

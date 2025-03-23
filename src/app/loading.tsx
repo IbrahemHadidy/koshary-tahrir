@@ -7,7 +7,7 @@ export default function Loading() {
       <div className="flex flex-col items-center gap-4">
         {/* Logo with Pulse Animation */}
         <div className="animate-[pulseScaleFade_1s_ease-in-out_infinite]">
-          <Image src={Logo} alt="logo" width={80} height={80} className="rounded-full" />
+          <Image src={Logo} alt="logo" priority width={80} height={80} className="rounded-full" />
         </div>
 
         {/* Modern Loading Indicator */}

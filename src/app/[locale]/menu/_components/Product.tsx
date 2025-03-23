@@ -29,7 +29,6 @@ export default function Product({ item }: ProductProps) {
             alt={item.name[locale]}
             fill
             loading="lazy"
-            placeholder="blur"
             className="object-contain p-4 transition-transform duration-300 hover:scale-105"
           />
         </div>

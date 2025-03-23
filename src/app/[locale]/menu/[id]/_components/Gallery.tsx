@@ -21,7 +21,6 @@ export default function Gallery({ images }: GalleryProps) {
           alt="image"
           fill
           loading="lazy"
-          placeholder="blur"
           className="bg-white object-contain p-6"
         />
       </div>
