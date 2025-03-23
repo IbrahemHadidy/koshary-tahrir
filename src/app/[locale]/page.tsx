@@ -1,4 +1,5 @@
 import metadata from '@data/metadata';
+import ogImage from '@images/og-image.webp';
 import { Metadata } from 'next';
 import Home from './_components/Home';
 
@@ -12,9 +13,6 @@ export async function generateMetadata({
   return {
     title: metadata.home[locale]?.title,
     description: metadata.home[locale]?.description,
-    icons: {
-      icon: '/images/favicon.ico',
-    },
     alternates: {
       canonical: `https://koshary-tahrir.vercel.app/${locale}`,
     },
@@ -27,7 +25,7 @@ export async function generateMetadata({
       type: 'website',
       images: [
         {
-          url: '/images/og-image.webp',
+          url: ogImage.src,
           width: 1200,
           height: 630,
         },

@@ -1,41 +1,47 @@
 import type { Branch } from '@data/branches';
-import { motion } from 'framer-motion';
 import { ArrowUpLeft, ArrowUpRight, MapPin } from 'lucide-react';
-import { useLocale, useTranslations } from 'next-intl';
+import type { getLocale, getTranslations } from 'next-intl/server';
+import Image from 'next/image';
 
 interface BranchProps {
   branch: Branch;
   idx: number;
+  t: Awaited<ReturnType<typeof getTranslations<'branches'>>>;
+  locale: Awaited<ReturnType<typeof getLocale>>;
 }
 
-export default function BranchesPage({ branch, idx }: BranchProps) {
-  const t = useTranslations('branches');
-  const locale = useLocale();
+export default function BranchesPage({ branch, idx, t, locale }: BranchProps) {
   const isRTL = locale === 'ar';
+  {
+    /* Image container with zoom effect */
+  }
 
   return (
-    <motion.a
+    <a
       href={`https://www.google.com/maps/search/?api=1&query=${branch.coordinates.lat},${branch.coordinates.lng}`}
       target="_blank"
       rel="noopener noreferrer"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: idx * 0.1 }}
-      className="group relative overflow-hidden rounded-xl bg-white shadow-md transition-all duration-300 hover:shadow-lg"
-      whileHover={{
-        y: -5,
-        transition: { duration: 0.3, ease: 'easeOut' },
-      }}
+      className={`group relative overflow-hidden rounded-xl bg-white shadow-md transition-all duration-300 hover:shadow-lg animate-[slideUpFade_0.5s_ease-out_${idx * 0.1}s_both] hover:-translate-y-[5px]`}
     >
-      {/* Image container with zoom effect */}
       <div className="relative h-48 overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-          style={{
-            backgroundImage: `linear-gradient(rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.5) 90%, rgba(255, 255, 255, 1)), url(${branch.image})`,
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent/80 to-black/50" />
+        {/* Image container with zoom effect */}
+        <div className="relative h-48 w-full overflow-hidden">
+          <Image
+            src={branch.image}
+            alt="branch"
+            fill
+            loading="lazy"
+            placeholder="blur"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'linear-gradient(to bottom, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.5) 90%, rgba(255, 255, 255, 1)), linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%)',
+            }}
+          />
+          <div className="absolute right-0 -bottom-1.5 left-0 z-2 h-2 bg-white" />
         </div>
 
         {/* MapPin - Animation tied to parent hover */}
@@ -76,6 +82,6 @@ export default function BranchesPage({ branch, idx }: BranchProps) {
           </div>
         </div>
       </div>
-    </motion.a>
+    </a>
   );
 }

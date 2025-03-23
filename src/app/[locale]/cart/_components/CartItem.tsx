@@ -1,10 +1,7 @@
-'use client';
-
 import { useCart } from '@context/CartContext';
 import type { MenuItem } from '@data/menu';
 import { Link } from '@i18n/navigation';
 import formatNumber from '@utils/formatNumber';
-import { motion } from 'framer-motion';
 import { Trash2 } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
@@ -20,7 +17,7 @@ export default function CartItem({ item, quantity }: CartItemProps) {
   const t = useTranslations('cart');
 
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center p-6">
+    <div className="flex animate-[fadeIn_0.5s_ease-out] items-center p-6">
       <Link href={`/menu/${item.id}`} className="relative h-24 w-24 overflow-hidden rounded-lg">
         <Image
           src={item.images[0]}
@@ -74,6 +71,6 @@ export default function CartItem({ item, quantity }: CartItemProps) {
           {formatNumber((item.price * quantity).toFixed(2), locale)} {t('currency')}
         </p>
       </div>
-    </motion.div>
+    </div>
   );
 }

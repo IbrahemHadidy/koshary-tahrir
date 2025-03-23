@@ -16,8 +16,8 @@ export default function CheckoutModal({
   const { clearCart } = useCart();
 
   const t = useTranslations('cart');
-  const [location, setLocation] = useState('');
-  const [notes, setNotes] = useState('');
+  const [location, setLocation] = useState<string>('');
+  const [notes, setNotes] = useState<string>('');
 
   const handleOrderSubmit = () => {
     if (!location.trim()) {

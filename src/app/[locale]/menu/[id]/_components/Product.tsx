@@ -1,16 +1,16 @@
-'use client';
-
 import { menu } from '@data/menu';
-import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
-import { useParams } from 'next/navigation';
+import { getLocale, getTranslations } from 'next-intl/server';
 import Actions from './Actions';
 import Details from './Details';
 import Gallery from './Gallery';
 
-export default function Product() {
-  const { id } = useParams();
-  const t = useTranslations('product');
+interface ProductProps {
+  id: string;
+}
+
+export default async function Product({ id }: ProductProps) {
+  const t = await getTranslations('product');
+  const locale = await getLocale();
 
   const product = menu.find((item) => item.id === id);
 
@@ -20,11 +20,7 @@ export default function Product() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="grid grid-cols-1 gap-12 lg:grid-cols-2"
-      >
+      <div className="grid animate-[fadeIn_0.5s_ease-out] grid-cols-1 gap-12 lg:grid-cols-2">
         <Gallery images={product.images} />
 
         <div className="space-y-8">
@@ -33,10 +29,12 @@ export default function Product() {
             description={product.description}
             price={product.price}
             details={product.details}
+            t={t}
+            locale={locale}
           />
           <Actions product={product} />
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }

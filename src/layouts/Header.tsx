@@ -12,7 +12,7 @@ export default function Header() {
   const pathname = usePathname();
   const locale = useLocale();
   const t = useTranslations('header');
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const isRTL = locale === 'ar';
 
   const switchLanguage = (lang: 'en' | 'ar') => {

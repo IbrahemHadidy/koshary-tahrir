@@ -1,23 +1,18 @@
 import type { ContactMethod } from '@data/contact';
-import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
+import type { getTranslations } from 'next-intl/server';
 
 interface ContactMethodProps {
   method: ContactMethod;
   idx: number;
+  t: Awaited<ReturnType<typeof getTranslations<'contact'>>>;
 }
 
-export default function Method({ method, idx }: ContactMethodProps) {
-  const t = useTranslations('contact');
-
+export default function Method({ method, idx, t }: ContactMethodProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: idx * 0.1 }}
+    <div
       className={`group rounded-xl bg-white p-6 shadow-md transition-all duration-300 hover:shadow-lg ${
         method.link ? 'cursor-pointer' : ''
-      }`}
+      } animate-[slideUpFade_0.5s_ease-out_${idx * 0.1}s_both]`}
     >
       <a
         href={method.link}
@@ -33,6 +28,6 @@ export default function Method({ method, idx }: ContactMethodProps) {
           <p className="text-gray-600">{t(method.content)}</p>
         </div>
       </a>
-    </motion.div>
+    </div>
   );
 }

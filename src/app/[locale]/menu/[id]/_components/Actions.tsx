@@ -1,3 +1,5 @@
+'use client';
+
 import { useCart } from '@context/CartContext';
 import type { MenuItem } from '@data/menu';
 import { Link } from '@i18n/navigation';
@@ -11,9 +13,9 @@ interface ActionsProps {
 
 export default function Actions({ product }: ActionsProps) {
   const { addToCart } = useCart();
-  const [quantity, setQuantity] = useState(1);
   const t = useTranslations('product');
   const locale = useLocale();
+  const [quantity, setQuantity] = useState<number>(1);
 
   return (
     <div className="space-y-6">

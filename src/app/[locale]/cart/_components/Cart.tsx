@@ -11,7 +11,7 @@ import EmptyCart from './EmptyCart';
 export default function Cart() {
   const { cart } = useCart();
   const t = useTranslations('cart');
-  const [showCheckoutModal, setShowCheckoutModal] = useState(false);
+  const [showCheckoutModal, setShowCheckoutModal] = useState<boolean>(false);
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">

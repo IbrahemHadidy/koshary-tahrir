@@ -17,9 +17,6 @@ export async function generateMetadata({
       title: metadata.product[locale]?.title.replace('{name}', 'Unknown Product'),
       description: metadata.product[locale]?.description.replace('{name}', 'this product'),
       metadataBase: new URL('https://koshary-tahrir.vercel.app'),
-      icons: {
-        icon: '/images/favicon.ico',
-      },
       alternates: {
         canonical: `https://koshary-tahrir.vercel.app/${locale}`,
       },
@@ -33,9 +30,6 @@ export async function generateMetadata({
       product.description[locale]
     ),
     metadataBase: new URL('https://koshary-tahrir.vercel.app'),
-    icons: {
-      icon: '/images/favicon.ico',
-    },
     alternates: {
       canonical: `https://koshary-tahrir.vercel.app/${locale}`,
     },
@@ -43,11 +37,12 @@ export async function generateMetadata({
       title: product.name[locale],
       description: product.description[locale],
       url: `https://koshary-tahrir.vercel.app/${locale}/menu/${id}`,
-      images: [{ url: product.images[0], width: 1200, height: 630 }],
+      images: [{ url: product.images[0].src, width: 1200, height: 630 }],
     },
   };
 }
 
-export default function ProductPage() {
-  return <Product />;
+export default async function ProductPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  return <Product id={id} />;
 }

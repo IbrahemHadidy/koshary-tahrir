@@ -1,8 +1,10 @@
-import { useTranslations } from 'next-intl';
+import type { getTranslations } from 'next-intl/server';
 
-export default function Form() {
-  const t = useTranslations('contact');
+interface FormProps {
+  t: Awaited<ReturnType<typeof getTranslations<'contact'>>>;
+}
 
+export default function Form({ t }: FormProps) {
   return (
     <div className="rounded-xl bg-white p-6 shadow-md md:p-8">
       <h2 className="mb-6 text-3xl font-bold text-gray-900">{t('sendMessage')}</h2>

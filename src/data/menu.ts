@@ -1,4 +1,32 @@
 import type en from '@messages/en.json';
+import type { StaticImageData } from 'next/image';
+
+import chickpeas from '@images/additionals/chickpeas.webp';
+import friedOnion from '@images/additionals/fried-onion.webp';
+import garlicSauce from '@images/additionals/garlic-sauce.webp';
+import hotSauce from '@images/additionals/hot-sauce.webp';
+import lentils from '@images/additionals/lentils.webp';
+import tomatoSauce from '@images/additionals/tomato-sauce.webp';
+import pudding from '@images/desserts/pudding.webp';
+import ricePudding from '@images/desserts/rice-pudding.webp';
+import sevenUpDiet from '@images/drinks/7-up-diet.webp';
+import sevenUp from '@images/drinks/7-up.webp';
+import mineralWaterLarge from '@images/drinks/mineral-water-large.webp';
+import mineralWaterSmall from '@images/drinks/mineral-water-small.webp';
+import mirindaApple from '@images/drinks/mirinda-apple.webp';
+import mirindaOrange from '@images/drinks/mirinda-orange.webp';
+import pepsiDiet from '@images/drinks/pepsi-diet.webp';
+import pepsi from '@images/drinks/pepsi.webp';
+import familyMealFor5 from '@images/koshary/family-meal-for-5.webp';
+import kingTahrirBox from '@images/koshary/king-tahrir-box.webp';
+import kingTahrirDish from '@images/koshary/king-tahrir-dish.webp';
+import largeTahrirBox from '@images/koshary/large-tahrir-box.webp';
+import largeTahrirDish from '@images/koshary/large-tahrir-dish.webp';
+import megaMealFor3 from '@images/koshary/mega-meal-for-3.webp';
+import tahrirBox from '@images/koshary/tahrir-box.webp';
+import tahrirDish from '@images/koshary/tahrir-dish.webp';
+import topTahrirBox from '@images/koshary/top-tahrir-box.webp';
+import topTahrirDish from '@images/koshary/top-tahrir-dish.webp';
 
 export type Additional = {
   type: string;
@@ -17,7 +45,7 @@ export type MenuItem = {
     ar: string;
   };
   price: number;
-  images: string[];
+  images: StaticImageData[];
   details?: {
     en: Additional[];
     ar: Additional[];
@@ -35,7 +63,7 @@ export const menu: MenuItem[] = [
       ar: 'علبة كشري تقليدية تحتوي على العدس، الأرز، المكرونة، والبصل المقرمش.',
     },
     price: 32,
-    images: ['/images/koshary/tahrir-box.webp', '/images/koshary/tahrir-dish.webp'],
+    images: [tahrirBox, tahrirDish],
     details: {
       en: [
         { type: 'Tomato Sauce', quantity: 1 },
@@ -62,7 +90,7 @@ export const menu: MenuItem[] = [
       ar: 'وجبة كشري بحجم أكبر، مثالية لوجبة مشبعة.',
     },
     price: 42,
-    images: ['/images/koshary/top-tahrir-box.webp', '/images/koshary/top-tahrir-dish.webp'],
+    images: [topTahrirBox, topTahrirDish],
     details: {
       en: [
         { type: 'Tomato Sauce', quantity: 1 },
@@ -89,7 +117,7 @@ export const menu: MenuItem[] = [
       ar: 'وجبة كشري بحجم كبير لعشاق الحصص الكبيرة.',
     },
     price: 50,
-    images: ['/images/koshary/large-tahrir-box.webp', '/images/koshary/large-tahrir-dish.webp'],
+    images: [largeTahrirBox, largeTahrirDish],
     details: {
       en: [
         { type: 'Tomato Sauce', quantity: 1 },
@@ -116,7 +144,7 @@ export const menu: MenuItem[] = [
       ar: 'علبة كشري بحجم كينج مع صلصات وإضافات أكثر.',
     },
     price: 65,
-    images: ['/images/koshary/king-tahrir-box.webp', '/images/koshary/king-tahrir-dish.webp'],
+    images: [kingTahrirBox, kingTahrirDish],
     details: {
       en: [
         { type: 'Tomato Sauce', quantity: 1 },
@@ -143,7 +171,7 @@ export const menu: MenuItem[] = [
       ar: 'وجبة كشري بحجم عائلي، مثالية للمشاركة مع الأصدقاء.',
     },
     price: 140,
-    images: ['/images/koshary/mega-meal-for-3.webp'],
+    images: [megaMealFor3],
     details: {
       en: [
         { type: 'Tomato Sauce', quantity: 4 },
@@ -170,7 +198,7 @@ export const menu: MenuItem[] = [
       ar: 'وجبة كشري بحجم كبير تكفي حتى خمسة أشخاص.',
     },
     price: 225,
-    images: ['/images/koshary/family-meal-for-5.webp'],
+    images: [familyMealFor5],
     details: {
       en: [
         { type: 'Tomato Sauce', quantity: 6 },
@@ -199,7 +227,7 @@ export const menu: MenuItem[] = [
       ar: 'بصل مقرمش يضيف ملمسًا رائعًا لوجبتك.',
     },
     price: 12,
-    images: ['/images/additionals/fried-onion.webp'],
+    images: [friedOnion],
   },
   {
     id: 'garlic-sauce',
@@ -210,7 +238,7 @@ export const menu: MenuItem[] = [
       ar: 'صلصة الدقة المصرية التقليدية لإضافة نكهة غنية.',
     },
     price: 2,
-    images: ['/images/additionals/garlic-sauce.webp'],
+    images: [garlicSauce],
   },
   {
     id: 'hot-sauce',
@@ -221,7 +249,7 @@ export const menu: MenuItem[] = [
       ar: 'صلصة شطة حارة لمحبي النكهات الحارة.',
     },
     price: 2,
-    images: ['/images/additionals/hot-sauce.webp'],
+    images: [hotSauce],
   },
   {
     id: 'tomato-sauce',
@@ -232,7 +260,7 @@ export const menu: MenuItem[] = [
       ar: 'صلصة طماطم غنية بالنكهة لإضافتها إلى الكشري.',
     },
     price: 7,
-    images: ['/images/additionals/tomato-sauce.webp'],
+    images: [tomatoSauce],
   },
   {
     id: 'chickpeas',
@@ -243,7 +271,7 @@ export const menu: MenuItem[] = [
       ar: 'وجبة من الحمص لإضافة البروتين والنكهة.',
     },
     price: 7,
-    images: ['/images/additionals/chickpeas.webp'],
+    images: [chickpeas],
   },
   {
     id: 'lentils',
@@ -254,7 +282,7 @@ export const menu: MenuItem[] = [
       ar: 'عدس مغذي لإضافة عمق ونكهة لوجبتك.',
     },
     price: 7,
-    images: ['/images/additionals/lentils.webp'],
+    images: [lentils],
   },
 
   // Drinks
@@ -267,7 +295,7 @@ export const menu: MenuItem[] = [
       ar: 'مشروب غازي بنكهة التفاح المنعشة لإكمال وجبتك.',
     },
     price: 20,
-    images: ['/images/drinks/mirinda-apple.webp'],
+    images: [mirindaApple],
   },
   {
     id: 'mirinda-orange',
@@ -278,7 +306,7 @@ export const menu: MenuItem[] = [
       ar: 'مشروب غازي حلو ومنعش بنكهة البرتقال.',
     },
     price: 20,
-    images: ['/images/drinks/mirinda-orange.webp'],
+    images: [mirindaOrange],
   },
   {
     id: '7-up-diet',
@@ -289,7 +317,7 @@ export const menu: MenuItem[] = [
       ar: 'مشروب غازي خالٍ من السكر بنكهة الليمون والليم المنعش.',
     },
     price: 20,
-    images: ['/images/drinks/7-up-diet.webp'],
+    images: [sevenUpDiet],
   },
   {
     id: '7-up',
@@ -300,7 +328,7 @@ export const menu: MenuItem[] = [
       ar: 'مشروب غازي كلاسيكي بنكهة الليمون والليم.',
     },
     price: 20,
-    images: ['/images/drinks/7-up.webp'],
+    images: [sevenUp],
   },
   {
     id: 'pepsi-diet',
@@ -311,7 +339,7 @@ export const menu: MenuItem[] = [
       ar: 'النسخة الخالية من السكر من بيبسي لمن يفضل طعم الكولا الأخف.',
     },
     price: 20,
-    images: ['/images/drinks/pepsi-diet.webp'],
+    images: [pepsiDiet],
   },
   {
     id: 'pepsi',
@@ -322,7 +350,7 @@ export const menu: MenuItem[] = [
       ar: 'مشروب كولا كلاسيكي يناسب جميع الوجبات.',
     },
     price: 20,
-    images: ['/images/drinks/pepsi.webp'],
+    images: [pepsi],
   },
   {
     id: 'mineral-water-small',
@@ -333,7 +361,7 @@ export const menu: MenuItem[] = [
       ar: 'زجاجة صغيرة من المياه المعدنية النقية.',
     },
     price: 6,
-    images: ['/images/drinks/mineral-water-small.webp'],
+    images: [mineralWaterSmall],
   },
   {
     id: 'mineral-water-large',
@@ -344,7 +372,7 @@ export const menu: MenuItem[] = [
       ar: 'زجاجة كبيرة من المياه المعدنية النقية.',
     },
     price: 10,
-    images: ['/images/drinks/mineral-water-large.webp'],
+    images: [mineralWaterLarge],
   },
 
   // Desserts
@@ -357,7 +385,7 @@ export const menu: MenuItem[] = [
       ar: 'أرز باللبن الكريمي، مزين بالمكسرات والقرفة.',
     },
     price: 25,
-    images: ['/images/desserts/rice-pudding.webp'],
+    images: [pudding],
   },
   {
     id: 'pudding',
@@ -368,6 +396,6 @@ export const menu: MenuItem[] = [
       ar: 'مهلبية ناعمة وكريمية محضرة بالحليب والسكر.',
     },
     price: 25,
-    images: ['/images/desserts/pudding.webp'],
+    images: [ricePudding],
   },
-] as const;
+];

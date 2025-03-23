@@ -1,7 +1,3 @@
-'use client';
-
-import { motion } from 'framer-motion';
-
 export default function Loading() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -25,11 +21,9 @@ export default function Loading() {
           {/* Menu Items Grid Skeleton */}
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {[1, 2, 3].map((itemIndex) => (
-              <motion.div
+              <div
                 key={itemIndex}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="overflow-hidden rounded-xl bg-white shadow-md"
+                className="animate-[fadeIn_0.5s_ease-out] overflow-hidden rounded-xl bg-white shadow-md"
               >
                 {/* Image Skeleton */}
                 <div className="relative h-64 animate-pulse bg-amber-50" />
@@ -47,7 +41,7 @@ export default function Loading() {
                     <div className="h-10 w-full animate-pulse rounded-full bg-amber-100" />
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </section>
@@ -55,11 +49,7 @@ export default function Loading() {
 
       {/* Floating Loading Indicator */}
       <div className="fixed right-8 bottom-8">
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-          className="h-12 w-12 rounded-full bg-amber-600 p-3 text-white"
-        >
+        <div className="h-12 w-12 animate-[spin_1s_linear_infinite] rounded-full bg-amber-600 p-3 text-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -73,7 +63,7 @@ export default function Loading() {
               d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
             />
           </svg>
-        </motion.div>
+        </div>
       </div>
     </div>
   );

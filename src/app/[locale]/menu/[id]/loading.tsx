@@ -1,6 +1,3 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import { Loader2 } from 'lucide-react';
 
 export default function Loading() {
@@ -9,12 +6,7 @@ export default function Loading() {
       <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
         {/* Image Gallery Skeleton */}
         <div className="space-y-4">
-          <motion.div
-            initial={{ opacity: 0.5 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, repeat: Infinity }}
-            className="aspect-square animate-pulse rounded-2xl bg-amber-100"
-          />
+          <div className="aspect-square animate-[pulseOpacity_1s_ease-in-out_infinite] rounded-2xl bg-amber-100" />
 
           <div className="grid grid-cols-4 gap-4">
             {[1, 2, 3, 4].map((i) => (
@@ -60,12 +52,9 @@ export default function Loading() {
 
       {/* Loading Spinner */}
       <div className="mt-12 flex justify-center">
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-        >
+        <div className="animate-spin">
           <Loader2 className="h-12 w-12 text-amber-600" />
-        </motion.div>
+        </div>
       </div>
     </div>
   );

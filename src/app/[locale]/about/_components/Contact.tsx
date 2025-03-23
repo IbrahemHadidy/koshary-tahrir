@@ -1,9 +1,11 @@
 import { Clock, MapPin } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import type { getTranslations } from 'next-intl/server';
 
-export default function Contact() {
-  const t = useTranslations('about');
+interface ContactProps {
+  t: Awaited<ReturnType<typeof getTranslations<'about'>>>;
+}
 
+export default function Contact({ t }: ContactProps) {
   return (
     <section className="rounded-2xl bg-amber-50 p-8 md:p-12">
       <div className="grid gap-12 md:grid-cols-2">

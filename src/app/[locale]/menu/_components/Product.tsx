@@ -2,7 +2,6 @@ import { useCart } from '@context/CartContext';
 import type { MenuItem } from '@data/menu';
 import { Link } from '@i18n/navigation';
 import formatNumber from '@utils/formatNumber';
-import { motion } from 'framer-motion';
 import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -12,21 +11,17 @@ interface ProductProps {
 }
 
 export default function Product({ item }: ProductProps) {
-  const [quantity, setQuantity] = useState<number>(1);
-  const locale = useLocale();
-  const t = useTranslations('menu');
   const { addToCart } = useCart();
+  const t = useTranslations('menu');
+  const locale = useLocale();
+  const [quantity, setQuantity] = useState<number>(1);
 
   const handleQuantityChange = (value: number) => {
     setQuantity(Math.max(1, value));
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="overflow-hidden rounded-xl bg-white shadow-md transition-shadow hover:shadow-lg"
-    >
+    <div className="animate-[slideUpFade_0.5s_ease-out] overflow-hidden rounded-xl bg-white shadow-md transition-shadow hover:shadow-lg">
       <Link href={`/menu/${item.id}`}>
         <div className="relative h-64">
           <Image
@@ -34,6 +29,7 @@ export default function Product({ item }: ProductProps) {
             alt={item.name[locale]}
             fill
             loading="lazy"
+            placeholder="blur"
             className="object-contain p-4 transition-transform duration-300 hover:scale-105"
           />
         </div>
@@ -76,6 +72,6 @@ export default function Product({ item }: ProductProps) {
           </button>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

@@ -1,46 +1,37 @@
-'use client';
-
 import { Link } from '@i18n/navigation';
 import hero from '@images/hero.webp';
-import { motion } from 'framer-motion';
-import { useLocale, useTranslations } from 'next-intl';
+import { getLocale, getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 
-export default function Home() {
-  const locale = useLocale();
-  const t = useTranslations('home');
+export default async function Home() {
+  const locale = await getLocale();
+  const t = await getTranslations('home');
 
   return (
     <section className="relative flex h-screen items-center justify-center">
       <div className="absolute inset-0 z-0">
-        <Image src={hero} alt="hero" fill loading="lazy" className="object-cover" />
+        <Image
+          src={hero}
+          alt="hero"
+          fill
+          priority
+          placeholder="blur"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
+          className="object-cover"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60" />
       </div>
 
       <div className="relative z-10 max-w-4xl px-4 text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="font-logo mb-6 text-5xl font-bold text-white [text-shadow:_2px_2px_6px_rgba(0,0,0,0.7)] md:text-7xl"
-        >
+        <h1 className="font-logo mb-6 animate-[slideUpFade_0.5s_ease-out] text-5xl font-bold text-white [text-shadow:_2px_2px_6px_rgba(0,0,0,0.7)] md:text-7xl">
           {t('welcome')}
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="mx-auto mb-8 max-w-2xl text-xl text-amber-100 [text-shadow:_2px_2px_6px_rgba(0,0,0,0.7)]"
-        >
+        <p className="mx-auto mb-8 max-w-2xl animate-[fadeIn_0.5s_ease-out_0.2s_both] text-xl text-amber-100 [text-shadow:_2px_2px_6px_rgba(0,0,0,0.7)]">
           {t('description')}
-        </motion.p>
+        </p>
 
-        <motion.div
-          className="flex flex-col justify-center gap-4 sm:flex-row"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-        >
+        <div className="flex animate-[fadeIn_0.5s_ease-out_0.4s_both] flex-col justify-center gap-4 sm:flex-row">
           {/* Primary CTA Buttons */}
           <div className="flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
             <Link href="/menu" className="w-full sm:w-auto">
@@ -63,12 +54,7 @@ export default function Home() {
           </div>
 
           {/* About Us Link */}
-          <motion.div
-            className="relative mt-4 flex items-center justify-center sm:mt-0 sm:ml-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-          >
+          <div className="relative mt-4 flex animate-[fadeIn_0.5s_ease-out_0.6s_both] items-center justify-center sm:mt-0 sm:ml-4">
             <div className="absolute hidden h-6 w-px bg-white/20 sm:block ltr:-left-4 rtl:-right-1" />
             <Link
               href="/about"
@@ -79,8 +65,8 @@ export default function Home() {
                 <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-amber-400 transition-all duration-300 [text-shadow:_2px_2px_6px_rgba(0,0,0,0.7)] group-hover:w-full" />
               </span>
             </Link>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );

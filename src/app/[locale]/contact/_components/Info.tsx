@@ -1,19 +1,15 @@
 import contactMethods from '@data/contact';
-import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
+import type { getTranslations } from 'next-intl/server';
 import Form from './Form';
 import Method from './Method';
 
-export default function Info() {
-  const t = useTranslations('contact');
+interface InfoProps {
+  t: Awaited<ReturnType<typeof getTranslations<'contact'>>>;
+}
 
+export default function Info({ t }: InfoProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 0.2 }}
-      className="mb-24 grid gap-12 md:grid-cols-2"
-    >
+    <div className="mb-24 grid animate-[fadeIn_0.5s_ease-out_0.2s_both] gap-12 md:grid-cols-2">
       {/* Contact Methods */}
       <div className="space-y-8">
         <h2 className="border-amber-500 text-3xl font-bold text-gray-900 ltr:border-l-4 ltr:pl-4 rtl:border-r-4 rtl:pr-4">
@@ -22,12 +18,12 @@ export default function Info() {
 
         <div className="grid grid-cols-1 gap-6">
           {contactMethods.map((method, index) => (
-            <Method key={method.title} method={method} idx={index} />
+            <Method key={method.title} method={method} idx={index} t={t} />
           ))}
         </div>
       </div>
 
-      <Form />
-    </motion.div>
+      <Form t={t} />
+    </div>
   );
 }

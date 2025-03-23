@@ -1,7 +1,7 @@
 import type { Additional } from '@data/menu';
 import formatNumber from '@utils/formatNumber';
 import { Carrot, Droplet, Flame, ForkKnifeCrossed, Soup, Utensils } from 'lucide-react';
-import { useLocale, useTranslations } from 'next-intl';
+import type { getLocale, getTranslations } from 'next-intl/server';
 
 interface DetailsProps {
   name: { ar: string; en: string };
@@ -11,12 +11,11 @@ interface DetailsProps {
     en: Additional[];
     ar: Additional[];
   };
+  t: Awaited<ReturnType<typeof getTranslations<'product'>>>;
+  locale: Awaited<ReturnType<typeof getLocale>>;
 }
 
-export default function Details({ name, description, price, details }: DetailsProps) {
-  const t = useTranslations('product');
-  const locale = useLocale();
-
+export default function Details({ name, description, price, details, t, locale }: DetailsProps) {
   return (
     <div>
       <h1 className="mb-4 text-4xl font-bold text-gray-900">{name[locale]}</h1>

@@ -1,5 +1,3 @@
-'use client';
-
 import { useCart } from '@context/CartContext';
 import { Link } from '@i18n/navigation';
 import formatNumber from '@utils/formatNumber';
@@ -12,8 +10,8 @@ interface CartActionsProps {
 
 export default function CartActions({ setShowCheckoutModal }: CartActionsProps) {
   const { cart, clearCart } = useCart();
-  const locale = useLocale();
   const t = useTranslations('cart');
+  const locale = useLocale();
 
   const hasKoshary = cart.some((item) => item.item.category === 'koshary');
   const totalPrice = cart.reduce(
