@@ -1,18 +1,24 @@
-import { useCart } from '@context/CartContext';
+import type { CartItem } from '@context/CartContext';
 import { Link } from '@i18n/navigation';
 import formatNumber from '@utils/formatNumber';
 import { Trash2 } from 'lucide-react';
-import { useLocale, useTranslations } from 'next-intl';
+import type { useLocale, useTranslations } from 'next-intl';
 
 interface CartActionsProps {
+  t: ReturnType<typeof useTranslations<'cart'>>;
+  locale: ReturnType<typeof useLocale>;
+  cart: CartItem[];
+  clearCart: (disableToast?: boolean) => void;
   setShowCheckoutModal: (value: boolean) => void;
 }
 
-export default function CartActions({ setShowCheckoutModal }: CartActionsProps) {
-  const { cart, clearCart } = useCart();
-  const t = useTranslations('cart');
-  const locale = useLocale();
-
+export default function CartActions({
+  t,
+  locale,
+  cart,
+  clearCart,
+  setShowCheckoutModal,
+}: CartActionsProps) {
   const hasKoshary = cart.some((item) => item.item.category === 'koshary');
   const totalPrice = cart.reduce(
     (total, cartItem) => total + cartItem.item.price * cartItem.quantity,

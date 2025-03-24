@@ -1,13 +1,13 @@
 import type { Branch } from '@data/branches';
 import { ArrowUpLeft, ArrowUpRight, MapPin } from 'lucide-react';
-import type { getLocale, getTranslations } from 'next-intl/server';
+import type { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 
 interface BranchProps {
   branch: Branch;
   idx: number;
-  t: Awaited<ReturnType<typeof getTranslations<'branches'>>>;
-  locale: Awaited<ReturnType<typeof getLocale>>;
+  t: ReturnType<typeof useTranslations<'branches'>>;
+  locale: ReturnType<typeof useLocale>;
 }
 
 export default function BranchesPage({ branch, idx, t, locale }: BranchProps) {

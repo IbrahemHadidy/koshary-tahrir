@@ -1,13 +1,13 @@
-import { getLocale, getTranslations } from 'next-intl/server';
+import { useLocale, useTranslations } from 'next-intl';
 import Contact from './Contact';
 import CoreValues from './CoreValues';
 import Hero from './Hero';
 import Story from './Story';
 import Team from './Team';
 
-export default async function About() {
-  const t = await getTranslations('about');
-  const locale = await getLocale();
+export default function About() {
+  const t = useTranslations('about');
+  const locale = useLocale();
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">

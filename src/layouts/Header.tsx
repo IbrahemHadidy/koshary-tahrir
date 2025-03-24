@@ -1,9 +1,10 @@
 'use client';
 
+import headerNavigation from '@data/navigation';
 import { Link, usePathname, useRouter } from '@i18n/navigation';
 import Logo from '@images/logo.webp';
 import { Menu, ShoppingCart, X } from 'lucide-react';
-import { useLocale, useTranslations } from 'next-intl';
+import { useLocale, useTranslations, type Locale } from 'next-intl';
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -12,20 +13,14 @@ export default function Header() {
   const pathname = usePathname();
   const locale = useLocale();
   const t = useTranslations('header');
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  const isRTL = locale === 'ar';
 
-  const switchLanguage = (lang: 'en' | 'ar') => {
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+
+  const switchLanguage = (lang: Locale) => {
     router.push(pathname, { locale: lang });
   };
 
-  const navigation = [
-    { name: t('menu'), href: '/menu' },
-    { name: t('branches'), href: '/branches' },
-    { name: t('about'), href: '/about' },
-    { name: t('contact'), href: '/contact' },
-  ];
-
+  const isRTL = locale === 'ar';
   const isCartPage = pathname.includes('/cart');
 
   return (
@@ -58,7 +53,7 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="absolute left-1/2 hidden -translate-x-1/2 transform items-center gap-8 md:flex">
-            {navigation.map((item) => {
+            {headerNavigation.map((item) => {
               const isActive = pathname.includes(item.href);
 
               return (
@@ -69,7 +64,7 @@ export default function Header() {
                     isActive ? 'font-semibold text-amber-600' : 'text-gray-600'
                   }`}
                 >
-                  {item.name}
+                  {t(item.name)}
                   <span
                     className={`absolute -bottom-1 left-0 h-0.5 bg-amber-600 transition-all ${
                       isActive ? 'w-full' : 'w-0 group-hover:w-full'
@@ -110,16 +105,17 @@ export default function Header() {
         <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'}`}>
           <nav className="pt-4 pb-2">
             <div className="space-y-2">
-              {navigation.map((item) => (
+              {headerNavigation.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
                   className="block rounded-lg px-4 py-2 text-gray-700 hover:bg-amber-50"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  {item.name}
+                  {t(item.name)}
                 </Link>
               ))}
+
               {/* Add Cart Link to Mobile Menu */}
               <Link
                 href="/cart"

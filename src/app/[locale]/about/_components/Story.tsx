@@ -1,9 +1,9 @@
 import Exterior from '@images/branches/branch-2.webp';
-import type { getTranslations } from 'next-intl/server';
+import type { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
 interface StoryProps {
-  t: Awaited<ReturnType<typeof getTranslations<'about'>>>;
+  t: ReturnType<typeof useTranslations<'about'>>;
 }
 
 export default function Story({ t }: StoryProps) {
@@ -17,14 +17,7 @@ export default function Story({ t }: StoryProps) {
           <p className="text-lg leading-relaxed text-gray-600">{t('storyContent')}</p>
         </div>
         <div className="relative aspect-video overflow-hidden rounded-xl shadow-lg">
-          <Image
-            src={Exterior}
-            alt="exterior"
-            fill
-            priority
-            placeholder="blur"
-            className="object-cover"
-          />
+          <Image src={Exterior} alt="exterior" fill priority className="object-cover" />
         </div>
       </div>
     </section>

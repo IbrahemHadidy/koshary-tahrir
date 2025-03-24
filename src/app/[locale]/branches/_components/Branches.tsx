@@ -1,10 +1,10 @@
 import { branches } from '@data/branches';
-import { getLocale, getTranslations } from 'next-intl/server';
+import { useLocale, useTranslations } from 'next-intl';
 import Branch from './Branch';
 
-export default async function Branches() {
-  const t = await getTranslations('branches');
-  const locale = await getLocale();
+export default function Branches() {
+  const t = useTranslations('branches');
+  const locale = useLocale();
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">

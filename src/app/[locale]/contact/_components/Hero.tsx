@@ -1,23 +1,16 @@
 import ContactImage from '@images/contact-hero.webp';
-import type { getTranslations } from 'next-intl/server';
+import type { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
 interface HeroProps {
-  t: Awaited<ReturnType<typeof getTranslations<'contact'>>>;
+  t: ReturnType<typeof useTranslations<'contact'>>;
 }
 
 export default function Hero({ t }: HeroProps) {
   return (
     <section className="relative mb-16 h-96 animate-[slideUpFade_0.5s_ease-out] overflow-hidden rounded-2xl">
       <div className="absolute inset-0">
-        <Image
-          src={ContactImage}
-          alt="Contact Background"
-          fill
-          priority
-          placeholder="blur"
-          className="object-cover"
-        />
+        <Image src={ContactImage} alt="Contact Background" fill priority className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60" />
       </div>
       <div className="absolute inset-0 flex items-end p-8">

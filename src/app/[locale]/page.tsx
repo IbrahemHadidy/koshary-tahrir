@@ -1,25 +1,27 @@
-import metadata from '@data/metadata';
 import ogImage from '@images/og-image.webp';
 import { Metadata } from 'next';
+import type { Locale } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import Home from './_components/Home';
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: 'en' | 'ar' }>;
+  params: Promise<{ locale: Locale }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations('metadata.home');
 
   return {
-    title: metadata.home[locale]?.title,
-    description: metadata.home[locale]?.description,
+    title: t('title'),
+    description: t('description'),
     alternates: {
       canonical: `https://koshary-tahrir.vercel.app/${locale}`,
     },
     metadataBase: new URL('https://koshary-tahrir.vercel.app'),
     openGraph: {
-      title: metadata.home[locale]?.title,
-      description: metadata.home[locale]?.description,
+      title: t('title'),
+      description: t('description'),
       url: `https://koshary-tahrir.vercel.app/${locale}`,
       siteName: 'Koshary Al-Tahrir',
       type: 'website',

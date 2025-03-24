@@ -3,18 +3,20 @@ import type { MenuItem } from '@data/menu';
 import { Link } from '@i18n/navigation';
 import formatNumber from '@utils/formatNumber';
 import { Trash2 } from 'lucide-react';
-import { useLocale, useTranslations } from 'next-intl';
+import type { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 
 interface CartItemProps {
+  t: ReturnType<typeof useTranslations<'cart'>>;
+  locale: ReturnType<typeof useLocale>;
+  updateQuantity: (id: string, quantity: number) => void;
+  removeFromCart: (id: string) => void;
   item: MenuItem;
   quantity: number;
 }
 
-export default function CartItem({ item, quantity }: CartItemProps) {
+export default function CartItem({ t, locale, item, quantity }: CartItemProps) {
   const { updateQuantity, removeFromCart } = useCart();
-  const locale = useLocale();
-  const t = useTranslations('cart');
 
   return (
     <div className="flex animate-[fadeIn_0.5s_ease-out] items-center p-6">

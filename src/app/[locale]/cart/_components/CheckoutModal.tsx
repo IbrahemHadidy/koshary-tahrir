@@ -1,21 +1,21 @@
-import { useCart } from '@context/CartContext';
 import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react';
-import { useTranslations } from 'next-intl';
+import type { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 
 interface CheckoutModalProps {
+  t: ReturnType<typeof useTranslations<'cart'>>;
+  clearCart: (disableToast?: boolean) => void;
   showCheckoutModal: boolean;
   setShowCheckoutModal: (value: boolean) => void;
 }
 
 export default function CheckoutModal({
+  t,
+  clearCart,
   showCheckoutModal,
   setShowCheckoutModal,
 }: CheckoutModalProps) {
-  const { clearCart } = useCart();
-
-  const t = useTranslations('cart');
   const [location, setLocation] = useState<string>('');
   const [notes, setNotes] = useState<string>('');
 

@@ -1,23 +1,25 @@
-import metadata from '@data/metadata';
 import type { Metadata } from 'next';
+import type { Locale } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import Menu from './_components/Menu';
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: 'en' | 'ar' }>;
+  params: Promise<{ locale: Locale }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations('metadata.menu');
 
   return {
-    title: metadata.menu[locale]?.title,
-    description: metadata.menu[locale]?.description,
+    title: t('title'),
+    description: t('description'),
     alternates: {
       canonical: `https://kosharyaltahrir.com/${locale}/menu`,
     },
     openGraph: {
-      title: metadata.menu[locale]?.title,
-      description: metadata.menu[locale]?.description,
+      title: t('title'),
+      description: t('description'),
       url: `https://kosharyaltahrir.com/${locale}/menu`,
       siteName: 'Koshary Al-Tahrir',
       type: 'website',

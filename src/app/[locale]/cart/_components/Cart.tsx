@@ -1,7 +1,7 @@
 'use client';
 
 import { useCart } from '@context/CartContext';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { useState } from 'react';
 import CartActions from './CartActions';
 import CartItem from './CartItem';
@@ -9,13 +9,17 @@ import CheckoutModal from './CheckoutModal';
 import EmptyCart from './EmptyCart';
 
 export default function Cart() {
-  const { cart } = useCart();
   const t = useTranslations('cart');
+  const locale = useLocale();
+
+  const { cart, clearCart, updateQuantity, removeFromCart } = useCart();
   const [showCheckoutModal, setShowCheckoutModal] = useState<boolean>(false);
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
       <CheckoutModal
+        t={t}
+        clearCart={clearCart}
         showCheckoutModal={showCheckoutModal}
         setShowCheckoutModal={setShowCheckoutModal}
       />
@@ -25,16 +29,30 @@ export default function Cart() {
 
       {/* Cart content */}
       {cart.length === 0 ? (
-        <EmptyCart />
+        <EmptyCart t={t} />
       ) : (
         <div className="space-y-8">
           <div className="divide-y divide-gray-100 rounded-xl bg-white shadow-md">
             {cart.map(({ item, quantity }) => (
-              <CartItem key={item.id} item={item} quantity={quantity} />
+              <CartItem
+                key={item.id}
+                t={t}
+                locale={locale}
+                item={item}
+                updateQuantity={updateQuantity}
+                removeFromCart={removeFromCart}
+                quantity={quantity}
+              />
             ))}
           </div>
 
-          <CartActions setShowCheckoutModal={setShowCheckoutModal} />
+          <CartActions
+            t={t}
+            locale={locale}
+            cart={cart}
+            clearCart={clearCart}
+            setShowCheckoutModal={setShowCheckoutModal}
+          />
         </div>
       )}
     </div>

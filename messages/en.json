@@ -1,4 +1,42 @@
 {
+  "metadata": {
+    "home": {
+      "title": "Koshary Al-Tahrir | Authentic Egyptian Cuisine",
+      "description": "Experience the taste of authentic Egyptian koshary since 1952."
+    },
+    "menu": {
+      "title": "Menu | Koshary Al-Tahrir",
+      "description": "Browse our authentic Egyptian menu featuring koshary, drinks, and desserts."
+    },
+    "about": {
+      "title": "About Us | Koshary Al-Tahrir",
+      "description": "Learn more about our history and commitment to quality food."
+    },
+    "contact": {
+      "title": "Contact Us | Koshary Al-Tahrir",
+      "description": "Get in touch with us for inquiries, orders, or feedback."
+    },
+    "branches": {
+      "title": "Our Branches | Koshary Al-Tahrir",
+      "description": "Find our nearest branches and visit us today."
+    },
+    "cart": {
+      "title": "Your Cart | Koshary Al-Tahrir",
+      "description": "Review your selected items before placing your order."
+    },
+    "product": {
+      "title": "{name} | Koshary Al-Tahrir",
+      "description": "Discover {name}, made with authentic Egyptian ingredients and flavors.",
+      "notFoundTitle": "Product Not Found",
+      "notFoundDescription": "Unable to find the requested product."
+    }
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "The page you're looking for doesn't exist or may have been moved.",
+    "home": "Go Home",
+    "menu": "View Menu"
+  },
   "header": {
     "title": "Koshary Al-Tahrir",
     "menu": "Menu",
@@ -42,7 +80,8 @@
     }
   },
   "product": {
-    "notFound": "Product not found",
+    "notFoundTitle": "Product not found",
+    "notFoundDescription": "We couldn't find the product you were looking for.",
     "includes": "Includes",
     "addToCart": "Add to Cart",
     "currency": "EGP",

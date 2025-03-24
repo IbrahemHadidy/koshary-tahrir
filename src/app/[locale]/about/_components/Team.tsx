@@ -1,10 +1,10 @@
 import teamMembers from '@data/team-members';
-import type { getLocale, getTranslations } from 'next-intl/server';
+import type { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 
 interface TeamProps {
-  t: Awaited<ReturnType<typeof getTranslations<'about'>>>;
-  locale: Awaited<ReturnType<typeof getLocale>>;
+  t: ReturnType<typeof useTranslations<'about'>>;
+  locale: ReturnType<typeof useLocale>;
 }
 
 export default function Team({ t, locale }: TeamProps) {

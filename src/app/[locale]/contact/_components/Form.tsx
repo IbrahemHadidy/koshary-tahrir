@@ -1,7 +1,7 @@
-import type { getTranslations } from 'next-intl/server';
+import type { useTranslations } from 'next-intl';
 
 interface FormProps {
-  t: Awaited<ReturnType<typeof getTranslations<'contact'>>>;
+  t: ReturnType<typeof useTranslations<'contact'>>;
 }
 
 export default function Form({ t }: FormProps) {

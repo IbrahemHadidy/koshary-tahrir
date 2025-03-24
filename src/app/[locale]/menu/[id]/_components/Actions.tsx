@@ -12,9 +12,10 @@ interface ActionsProps {
 }
 
 export default function Actions({ product }: ActionsProps) {
-  const { addToCart } = useCart();
   const t = useTranslations('product');
   const locale = useLocale();
+
+  const { addToCart } = useCart();
   const [quantity, setQuantity] = useState<number>(1);
 
   return (

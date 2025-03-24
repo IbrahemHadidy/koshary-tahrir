@@ -1,10 +1,10 @@
 import contactMethods from '@data/contact';
-import type { getTranslations } from 'next-intl/server';
+import type { useTranslations } from 'next-intl';
 import Form from './Form';
 import Method from './Method';
 
 interface InfoProps {
-  t: Awaited<ReturnType<typeof getTranslations<'contact'>>>;
+  t: ReturnType<typeof useTranslations<'contact'>>;
 }
 
 export default function Info({ t }: InfoProps) {

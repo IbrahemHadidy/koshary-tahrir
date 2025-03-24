@@ -1,10 +1,10 @@
 import type { ContactMethod } from '@data/contact';
-import type { getTranslations } from 'next-intl/server';
+import type { useTranslations } from 'next-intl';
 
 interface ContactMethodProps {
   method: ContactMethod;
   idx: number;
-  t: Awaited<ReturnType<typeof getTranslations<'contact'>>>;
+  t: ReturnType<typeof useTranslations<'contact'>>;
 }
 
 export default function Method({ method, idx, t }: ContactMethodProps) {

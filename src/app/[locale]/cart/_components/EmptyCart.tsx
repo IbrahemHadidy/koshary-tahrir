@@ -1,10 +1,12 @@
 import { Link } from '@i18n/navigation';
 import { ShoppingBag } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import type { useTranslations } from 'next-intl';
 
-export default function EmptyCart() {
-  const t = useTranslations('cart');
+interface EmptyCartProps {
+  t: ReturnType<typeof useTranslations<'cart'>>;
+}
 
+export default function EmptyCart({ t }: EmptyCartProps) {
   return (
     <div className="animate-[fadeIn_0.5s_ease-out] py-20 text-center">
       <ShoppingBag className="mx-auto mb-6 h-24 w-24 text-gray-300" />

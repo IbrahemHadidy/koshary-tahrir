@@ -1,8 +1,8 @@
 import { Clock, MapPin } from 'lucide-react';
-import type { getTranslations } from 'next-intl/server';
+import type { useTranslations } from 'next-intl';
 
 interface ContactProps {
-  t: Awaited<ReturnType<typeof getTranslations<'about'>>>;
+  t: ReturnType<typeof useTranslations<'about'>>;
 }
 
 export default function Contact({ t }: ContactProps) {

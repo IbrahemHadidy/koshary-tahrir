@@ -7,13 +7,14 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 interface ProductProps {
+  idx: number;
   item: MenuItem;
 }
 
-export default function Product({ item }: ProductProps) {
-  const { addToCart } = useCart();
-  const t = useTranslations('menu');
+export default function Product({ idx, item }: ProductProps) {
   const locale = useLocale();
+  const t = useTranslations('menu');
+  const { addToCart } = useCart();
   const [quantity, setQuantity] = useState<number>(1);
 
   const handleQuantityChange = (value: number) => {
@@ -21,7 +22,12 @@ export default function Product({ item }: ProductProps) {
   };
 
   return (
-    <div className="animate-[slideUpFade_0.5s_ease-out] overflow-hidden rounded-xl bg-white shadow-md transition-shadow hover:shadow-lg">
+    <div
+      className="overflow-hidden rounded-xl bg-white shadow-md transition-shadow hover:shadow-lg"
+      style={{
+        animation: `slideUpFade 0.5s ease-out ${Number((idx * 0.1).toFixed(1))}s both`,
+      }}
+    >
       <Link href={`/menu/${item.id}`}>
         <div className="relative h-64">
           <Image

@@ -1,6 +1,6 @@
 import type en from '@messages/en.json';
 import { Clock, HeartHandshake, type LucideProps, Utensils } from 'lucide-react';
-import type { getTranslations } from 'next-intl/server';
+import type { useTranslations } from 'next-intl';
 import type { ForwardRefExoticComponent, RefAttributes } from 'react';
 
 type AboutTranslatioKey = keyof typeof en.about;
@@ -12,7 +12,7 @@ type CoreValue = {
 };
 
 interface CoreValuesProps {
-  t: Awaited<ReturnType<typeof getTranslations<'about'>>>;
+  t: ReturnType<typeof useTranslations<'about'>>;
 }
 
 export default function CoreValues({ t }: CoreValuesProps) {

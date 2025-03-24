@@ -1,11 +1,11 @@
 import { Link } from '@i18n/navigation';
 import hero from '@images/hero.webp';
-import { getLocale, getTranslations } from 'next-intl/server';
+import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 
-export default async function Home() {
-  const locale = await getLocale();
-  const t = await getTranslations('home');
+export default function Home() {
+  const locale = useLocale();
+  const t = useTranslations('home');
 
   return (
     <section className="relative flex h-screen items-center justify-center">

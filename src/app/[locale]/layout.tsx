@@ -2,22 +2,29 @@ import Providers from '@components/Providers';
 import { routing } from '@i18n/routing';
 import Footer from '@layouts/Footer';
 import Header from '@layouts/Header';
+import { hasLocale, type Locale } from 'next-intl';
+import { setRequestLocale } from 'next-intl/server';
 import { Space_Grotesk } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import type { ReactNode } from 'react';
 import './globals.css';
 
+interface LocaleLayoutProps {
+  children: ReactNode;
+  params: Promise<{ locale: Locale }>;
+}
+
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
 
-export default async function RootLayout({
-  children,
-  params,
-}: {
-  children: ReactNode;
-  params: Promise<{ locale: 'en' | 'ar' }>;
-}) {
+export async function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export default async function LocaleLayout({ children, params }: LocaleLayoutProps) {
   const { locale } = await params;
-  if (!routing.locales.includes(locale)) notFound();
+
+  if (!hasLocale(routing.locales, locale)) notFound();
+  else setRequestLocale(locale);
 
   const isRTL = locale === 'ar';
 

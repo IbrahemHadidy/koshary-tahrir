@@ -7,7 +7,7 @@ import type { ReactNode } from 'react';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
-type CartItem = {
+export type CartItem = {
   item: MenuItem;
   quantity: number;
 };
@@ -79,6 +79,7 @@ export default function CartProvider({ children }: { children: ReactNode }) {
   };
 
   const clearCart = (disableToast = false) => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     setCart([]);
 
     if (disableToast) return;

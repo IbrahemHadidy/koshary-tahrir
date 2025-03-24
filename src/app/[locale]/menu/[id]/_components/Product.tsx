@@ -1,23 +1,13 @@
-import { menu } from '@data/menu';
-import { getLocale, getTranslations } from 'next-intl/server';
+import type { MenuItem } from '@data/menu';
 import Actions from './Actions';
 import Details from './Details';
 import Gallery from './Gallery';
 
 interface ProductProps {
-  id: string;
+  product: MenuItem;
 }
 
-export default async function Product({ id }: ProductProps) {
-  const t = await getTranslations('product');
-  const locale = await getLocale();
-
-  const product = menu.find((item) => item.id === id);
-
-  if (!product) {
-    return <p className="text-center text-red-500">{t('notFound')}</p>;
-  }
-
+export default function Product({ product }: ProductProps) {
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
       <div className="grid animate-[fadeIn_0.5s_ease-out] grid-cols-1 gap-12 lg:grid-cols-2">
@@ -29,8 +19,6 @@ export default async function Product({ id }: ProductProps) {
             description={product.description}
             price={product.price}
             details={product.details}
-            t={t}
-            locale={locale}
           />
           <Actions product={product} />
         </div>
