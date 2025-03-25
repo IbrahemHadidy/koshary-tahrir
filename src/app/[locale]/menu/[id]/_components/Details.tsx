@@ -19,8 +19,8 @@ export default async function Details({ name, description, price, details }: Det
 
   return (
     <div>
-      <h1 className="mb-4 text-4xl font-bold text-gray-900">{name[locale]}</h1>
-      <p className="mb-4 leading-relaxed text-gray-700">{description[locale]}</p>
+      <h1 className="mb-4 text-4xl font-bold text-gray-900">{name[locale ?? 'en']}</h1>
+      <p className="mb-4 leading-relaxed text-gray-700">{description[locale ?? 'en']}</p>
       <p className="mb-6 text-3xl font-semibold text-amber-600">
         {formatNumber(price, locale)} {t('currency')}
       </p>
@@ -32,7 +32,7 @@ export default async function Details({ name, description, price, details }: Det
             {t('includes')}
           </h2>
           <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
-            {details[locale].map((item, index) => (
+            {details[locale ?? 'en'].map((item, index) => (
               <li key={index} className="flex items-center gap-3 rounded-lg bg-white p-3">
                 <span className="rounded-md bg-amber-100 p-2">
                   {item.type === 'Tomato Sauce' || item.type === 'صلصة' ? (

@@ -32,7 +32,7 @@ export default function CartItem({ t, locale, item, quantity }: CartItemProps) {
 
       <div className="ml-6 flex-1">
         <Link href={`/menu/${item.id}`}>
-          <h3 className="text-xl font-semibold text-gray-900">{item.name[locale]}</h3>
+          <h3 className="text-xl font-semibold text-gray-900">{item.name[locale ?? 'en']}</h3>
         </Link>
         <p className="text-gray-600">
           {formatNumber(item.price, locale)} {t('currency')}

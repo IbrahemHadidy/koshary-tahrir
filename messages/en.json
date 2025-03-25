@@ -1,31 +1,31 @@
 {
   "metadata": {
+    "brand": "Koshary Al-Tahrir",
     "home": {
       "title": "Koshary Al-Tahrir | Authentic Egyptian Cuisine",
       "description": "Experience the taste of authentic Egyptian koshary since 1952."
     },
     "menu": {
-      "title": "Menu | Koshary Al-Tahrir",
+      "title": "Menu",
       "description": "Browse our authentic Egyptian menu featuring koshary, drinks, and desserts."
     },
     "about": {
-      "title": "About Us | Koshary Al-Tahrir",
+      "title": "About Us",
       "description": "Learn more about our history and commitment to quality food."
     },
     "contact": {
-      "title": "Contact Us | Koshary Al-Tahrir",
+      "title": "Contact Us",
       "description": "Get in touch with us for inquiries, orders, or feedback."
     },
     "branches": {
-      "title": "Our Branches | Koshary Al-Tahrir",
+      "title": "Our Branches",
       "description": "Find our nearest branches and visit us today."
     },
     "cart": {
-      "title": "Your Cart | Koshary Al-Tahrir",
+      "title": "Your Cart",
       "description": "Review your selected items before placing your order."
     },
     "product": {
-      "title": "{name} | Koshary Al-Tahrir",
       "description": "Discover {name}, made with authentic Egyptian ingredients and flavors.",
       "notFoundTitle": "Product Not Found",
       "notFoundDescription": "Unable to find the requested product."

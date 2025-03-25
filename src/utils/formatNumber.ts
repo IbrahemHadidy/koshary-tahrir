@@ -1,4 +1,4 @@
-const formatNumber = (num: number | string, locale: string): string => {
+const formatNumber = (num: number | string, locale: string = 'en'): string => {
   if (locale === 'ar') {
     const digits = '٠١٢٣٤٥٦٧٨٩';
     return String(num).replace(/\d/g, (d) => digits[+d]);

@@ -50,6 +50,26 @@ export type MenuItem = {
     en: Additional[];
     ar: Additional[];
   };
+  nutrition?: {
+    calories?: string;
+    carbohydrateContent?: string;
+    proteinContent?: string;
+    fatContent?: string;
+    fiberContent?: string;
+    sodiumContent?: string;
+    sugarContent?: string;
+    allergens?: string[];
+    dietaryRestrictions?: string[];
+    micronutrients?: Record<string, string>;
+    servingSize?: string;
+    cookingMethod?: string;
+    preservatives?: string;
+    additives?: string[];
+    caffeineContent?: string;
+    mineralContent?: string;
+    pH?: string;
+    calciumContent?: string;
+  };
 };
 
 export const menu: MenuItem[] = [
@@ -80,6 +100,21 @@ export const menu: MenuItem[] = [
         { type: 'ملعقة', quantity: 1 },
       ],
     },
+    nutrition: {
+      calories: '650-700',
+      carbohydrateContent: '120-130g',
+      proteinContent: '20-25g',
+      fatContent: '10-15g',
+      fiberContent: '8-10g',
+      sodiumContent: '800-900mg',
+      allergens: ['gluten'],
+      dietaryRestrictions: ['vegetarian'],
+      micronutrients: {
+        iron: '15% DV',
+        calcium: '8% DV',
+      },
+      servingSize: '1 box (450g)',
+    },
   },
   {
     id: 'top-tahrir',
@@ -106,6 +141,21 @@ export const menu: MenuItem[] = [
         { type: 'تقلية', quantity: 1 },
         { type: 'ملعقة', quantity: 1 },
       ],
+    },
+    nutrition: {
+      calories: '850-900',
+      carbohydrateContent: '150-160g',
+      proteinContent: '25-30g',
+      fatContent: '15-20g',
+      fiberContent: '10-12g',
+      sodiumContent: '1000-1100mg',
+      allergens: ['gluten'],
+      dietaryRestrictions: ['vegetarian'],
+      micronutrients: {
+        iron: '18% DV',
+        calcium: '10% DV',
+      },
+      servingSize: '1 box (600g)',
     },
   },
   {
@@ -134,6 +184,16 @@ export const menu: MenuItem[] = [
         { type: 'ملعقة', quantity: 1 },
       ],
     },
+    nutrition: {
+      calories: '1000-1100',
+      carbohydrateContent: '180-200g',
+      proteinContent: '30-35g',
+      fatContent: '20-25g',
+      fiberContent: '12-15g',
+      sodiumContent: '1200-1300mg',
+      allergens: ['gluten'],
+      dietaryRestrictions: ['vegetarian'],
+    },
   },
   {
     id: 'king-tahrir',
@@ -160,6 +220,16 @@ export const menu: MenuItem[] = [
         { type: 'تقلية', quantity: 2 },
         { type: 'ملعقة', quantity: 1 },
       ],
+    },
+    nutrition: {
+      calories: '1200-1300',
+      carbohydrateContent: '220-240g',
+      proteinContent: '35-40g',
+      fatContent: '25-30g',
+      fiberContent: '15-18g',
+      sodiumContent: '1500-1600mg',
+      allergens: ['gluten'],
+      dietaryRestrictions: ['vegetarian'],
     },
   },
   {
@@ -188,6 +258,17 @@ export const menu: MenuItem[] = [
         { type: 'ملعقة', quantity: 4 },
       ],
     },
+    nutrition: {
+      calories: '2200-2500 (total)',
+      carbohydrateContent: '400-450g',
+      proteinContent: '70-80g',
+      fatContent: '50-60g',
+      fiberContent: '30-35g',
+      sodiumContent: '3000-3200mg',
+      allergens: ['gluten'],
+      dietaryRestrictions: ['vegetarian'],
+      servingSize: 'Serves 3',
+    },
   },
   {
     id: 'family-meal',
@@ -215,6 +296,17 @@ export const menu: MenuItem[] = [
         { type: 'ملعقة', quantity: 6 },
       ],
     },
+    nutrition: {
+      calories: '3500-4000 (total)',
+      carbohydrateContent: '600-650g',
+      proteinContent: '100-120g',
+      fatContent: '80-100g',
+      fiberContent: '45-50g',
+      sodiumContent: '4500-5000mg',
+      allergens: ['gluten'],
+      dietaryRestrictions: ['vegetarian'],
+      servingSize: 'Serves 5',
+    },
   },
 
   // Additional Items
@@ -228,6 +320,15 @@ export const menu: MenuItem[] = [
     },
     price: 12,
     images: [friedOnion],
+    nutrition: {
+      calories: '150',
+      fatContent: '10g (2g saturated)',
+      carbohydrateContent: '12g',
+      fiberContent: '2g',
+      sodiumContent: '200mg',
+      servingSize: '30g packet',
+      cookingMethod: 'Deep-fried in sunflower oil',
+    },
   },
   {
     id: 'garlic-sauce',
@@ -239,6 +340,14 @@ export const menu: MenuItem[] = [
     },
     price: 2,
     images: [garlicSauce],
+    nutrition: {
+      calories: '80',
+      fatContent: '8g',
+      carbohydrateContent: '2g',
+      sodiumContent: '150mg',
+      allergens: ['garlic'],
+      preservatives: 'None',
+    },
   },
   {
     id: 'hot-sauce',
@@ -250,6 +359,12 @@ export const menu: MenuItem[] = [
     },
     price: 2,
     images: [hotSauce],
+    nutrition: {
+      calories: '20',
+      carbohydrateContent: '4g',
+      sodiumContent: '300mg',
+      servingSize: '20ml packet',
+    },
   },
   {
     id: 'tomato-sauce',
@@ -261,6 +376,16 @@ export const menu: MenuItem[] = [
     },
     price: 7,
     images: [tomatoSauce],
+    nutrition: {
+      calories: '40',
+      carbohydrateContent: '8g',
+      proteinContent: '1g',
+      sodiumContent: '400mg',
+      micronutrients: {
+        vitaminC: '15% DV',
+        lycopene: '20% DV',
+      },
+    },
   },
   {
     id: 'chickpeas',
@@ -272,6 +397,17 @@ export const menu: MenuItem[] = [
     },
     price: 7,
     images: [chickpeas],
+    nutrition: {
+      calories: '164',
+      carbohydrateContent: '27g',
+      proteinContent: '9g',
+      fatContent: '2.6g',
+      fiberContent: '8g',
+      micronutrients: {
+        iron: '26% DV',
+        folate: '43% DV',
+      },
+    },
   },
   {
     id: 'lentils',
@@ -283,6 +419,17 @@ export const menu: MenuItem[] = [
     },
     price: 7,
     images: [lentils],
+    nutrition: {
+      calories: '116',
+      carbohydrateContent: '20g',
+      proteinContent: '9g',
+      fatContent: '0.4g',
+      fiberContent: '8g',
+      micronutrients: {
+        iron: '37% DV',
+        folate: '45% DV',
+      },
+    },
   },
 
   // Drinks
@@ -296,6 +443,13 @@ export const menu: MenuItem[] = [
     },
     price: 20,
     images: [mirindaApple],
+    nutrition: {
+      calories: '160',
+      sugarContent: '40g',
+      carbohydrateContent: '42g',
+      sodiumContent: '45mg',
+      additives: ['E330', 'E211'],
+    },
   },
   {
     id: 'mirinda-orange',
@@ -307,6 +461,13 @@ export const menu: MenuItem[] = [
     },
     price: 20,
     images: [mirindaOrange],
+    nutrition: {
+      calories: '170',
+      sugarContent: '42g',
+      carbohydrateContent: '44g',
+      sodiumContent: '40mg',
+      additives: ['E330', 'E102'],
+    },
   },
   {
     id: '7-up-diet',
@@ -318,6 +479,12 @@ export const menu: MenuItem[] = [
     },
     price: 20,
     images: [sevenUpDiet],
+    nutrition: {
+      calories: '0',
+      carbohydrateContent: '0g',
+      sodiumContent: '35mg',
+      additives: ['Aspartame', 'Acesulfame-K'],
+    },
   },
   {
     id: '7-up',
@@ -329,6 +496,12 @@ export const menu: MenuItem[] = [
     },
     price: 20,
     images: [sevenUp],
+    nutrition: {
+      calories: '140',
+      sugarContent: '38g',
+      carbohydrateContent: '39g',
+      sodiumContent: '40mg',
+    },
   },
   {
     id: 'pepsi-diet',
@@ -340,6 +513,12 @@ export const menu: MenuItem[] = [
     },
     price: 20,
     images: [pepsiDiet],
+    nutrition: {
+      calories: '0',
+      carbohydrateContent: '0g',
+      sodiumContent: '25mg',
+      additives: ['Aspartame', 'Acesulfame-K'],
+    },
   },
   {
     id: 'pepsi',
@@ -351,6 +530,13 @@ export const menu: MenuItem[] = [
     },
     price: 20,
     images: [pepsi],
+    nutrition: {
+      calories: '150',
+      sugarContent: '41g',
+      carbohydrateContent: '41g',
+      sodiumContent: '30mg',
+      caffeineContent: '38mg',
+    },
   },
   {
     id: 'mineral-water-small',
@@ -362,6 +548,12 @@ export const menu: MenuItem[] = [
     },
     price: 6,
     images: [mineralWaterSmall],
+    nutrition: {
+      calories: '0',
+      sodiumContent: '10mg',
+      mineralContent: 'Calcium: 20mg, Magnesium: 5mg',
+      pH: '7.5',
+    },
   },
   {
     id: 'mineral-water-large',
@@ -373,6 +565,12 @@ export const menu: MenuItem[] = [
     },
     price: 10,
     images: [mineralWaterLarge],
+    nutrition: {
+      calories: '0',
+      sodiumContent: '20mg',
+      mineralContent: 'Calcium: 50mg, Magnesium: 15mg',
+      pH: '7.5',
+    },
   },
 
   // Desserts
@@ -386,6 +584,15 @@ export const menu: MenuItem[] = [
     },
     price: 25,
     images: [pudding],
+    nutrition: {
+      calories: '300',
+      carbohydrateContent: '45g',
+      sugarContent: '30g',
+      proteinContent: '8g',
+      fatContent: '10g',
+      calciumContent: '15% DV',
+      allergens: ['milk', 'nuts'],
+    },
   },
   {
     id: 'pudding',
@@ -397,5 +604,14 @@ export const menu: MenuItem[] = [
     },
     price: 25,
     images: [ricePudding],
+    nutrition: {
+      calories: '280',
+      carbohydrateContent: '40g',
+      sugarContent: '25g',
+      proteinContent: '6g',
+      fatContent: '8g',
+      calciumContent: '20% DV',
+      allergens: ['milk'],
+    },
   },
 ];

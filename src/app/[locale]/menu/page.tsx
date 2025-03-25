@@ -1,6 +1,6 @@
+import generatePageMetadata from '@utils/generatePageMetadata';
 import type { Metadata } from 'next';
 import type { Locale } from 'next-intl';
-import { getTranslations } from 'next-intl/server';
 import Menu from './_components/Menu';
 
 export async function generateMetadata({
@@ -9,22 +9,16 @@ export async function generateMetadata({
   params: Promise<{ locale: Locale }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations('metadata.menu');
 
-  return {
-    title: t('title'),
-    description: t('description'),
-    alternates: {
-      canonical: `https://kosharyaltahrir.com/${locale}/menu`,
+  return generatePageMetadata({
+    locale,
+    namespace: 'metadata.menu',
+    path: '/menu',
+    other: {
+      'og:price:amount': '32-225',
+      'og:price:currency': 'EGP',
     },
-    openGraph: {
-      title: t('title'),
-      description: t('description'),
-      url: `https://kosharyaltahrir.com/${locale}/menu`,
-      siteName: 'Koshary Al-Tahrir',
-      type: 'website',
-    },
-  };
+  });
 }
 
 export default function MenuPage() {

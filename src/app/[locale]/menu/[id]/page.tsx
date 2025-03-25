@@ -1,4 +1,6 @@
+import ProductSchema from '@/components/ProductSchema';
 import { menu } from '@data/menu';
+import generatePageMetadata from '@utils/generatePageMetadata';
 import type { Metadata } from 'next';
 import type { Locale } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
@@ -16,44 +18,60 @@ export async function generateMetadata({
   const product = menu.find((item) => item.id === id);
 
   if (!product) {
-    return {
-      title: t('notFoundTitle'),
-      description: t('notFoundDescription'),
-      metadataBase: new URL('https://koshary-tahrir.vercel.app'),
-      alternates: {
-        canonical: `https://koshary-tahrir.vercel.app/${locale}`,
-      },
-      openGraph: {
+    return generatePageMetadata({
+      locale,
+      namespace: 'metadata.product',
+      path: `/menu/${id}`,
+      dynamicData: {
         title: t('notFoundTitle'),
         description: t('notFoundDescription'),
-        url: `https://koshary-tahrir.vercel.app/${locale}/menu/${id}`,
       },
-    };
+      robots: {
+        index: false,
+        follow: false,
+      },
+    });
   }
 
-  return {
-    title: t('title', { name: product.name[locale] }),
-    description: t('description', { name: product.name[locale] }),
-    metadataBase: new URL('https://koshary-tahrir.vercel.app'),
-    alternates: {
-      canonical: `https://koshary-tahrir.vercel.app/${locale}`,
+  return generatePageMetadata({
+    locale,
+    namespace: 'metadata.product',
+    path: `/menu/${id}`,
+    ogImage: {
+      src: product.images[0].src,
+      width: 1200,
+      height: 630,
     },
-    openGraph: {
-      title: t('title', { name: product.name[locale] }),
+    dynamicData: {
+      title: product.name[locale],
       description: t('description', { name: product.name[locale] }),
-      url: `https://koshary-tahrir.vercel.app/${locale}/menu/${id}`,
-      images: [{ url: product.images[0].src, width: 1200, height: 630 }],
+      images: product.images.map((img) => ({
+        url: img.src,
+        width: img.width,
+        height: img.height,
+      })),
+      price: product.price,
     },
-  };
+  });
 }
 
 export async function generateStaticParams() {
   return menu.map((product) => ({ id: product.id }));
 }
 
-export default async function ProductPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
+export default async function ProductPage({
+  params,
+}: {
+  params: Promise<{ locale: Locale; id: string }>;
+}) {
+  const { locale, id } = await params;
   const product = menu.find((p) => p.id === id);
   if (!product) notFound();
-  else return <Product product={product} />;
+  else
+    return (
+      <>
+        <Product product={product} />
+        <ProductSchema product={product} locale={locale} />
+      </>
+    );
 }

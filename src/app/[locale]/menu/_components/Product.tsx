@@ -32,7 +32,7 @@ export default function Product({ idx, item }: ProductProps) {
         <div className="relative h-64">
           <Image
             src={item.images[0]}
-            alt={item.name[locale]}
+            alt={item.name.en}
             fill
             loading="lazy"
             className="object-contain p-4 transition-transform duration-300 hover:scale-105"
@@ -42,7 +42,7 @@ export default function Product({ idx, item }: ProductProps) {
 
       <div className="p-6">
         <div className="mb-4 flex items-start justify-between">
-          <h3 className="text-xl font-semibold text-gray-900">{item.name[locale]}</h3>
+          <h3 className="text-xl font-semibold text-gray-900">{item.name[locale ?? 'en']}</h3>
           <span className="text-lg font-medium text-amber-600">
             {formatNumber(item.price, locale)} {t('currency')}
           </span>

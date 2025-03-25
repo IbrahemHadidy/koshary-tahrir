@@ -1,6 +1,6 @@
+import generatePageMetadata from '@utils/generatePageMetadata';
 import type { Metadata } from 'next';
 import type { Locale } from 'next-intl';
-import { getTranslations } from 'next-intl/server';
 import Contact from './_components/Contact';
 
 export async function generateMetadata({
@@ -9,22 +9,16 @@ export async function generateMetadata({
   params: Promise<{ locale: Locale }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations('metadata.contact');
 
-  return {
-    title: t('title'),
-    description: t('description'),
-    alternates: {
-      canonical: `https://kosharyaltahrir.com/${locale}/contact`,
+  return generatePageMetadata({
+    locale,
+    namespace: 'metadata.contact',
+    path: '/contact',
+    other: {
+      'business:contact_data:website': 'https://koshary-tahrir.vercel.app',
+      'business:contact_data:phone_number': '19719',
     },
-    openGraph: {
-      title: t('title'),
-      description: t('description'),
-      url: `https://kosharyaltahrir.com/${locale}/contact`,
-      siteName: 'Koshary Al-Tahrir',
-      type: 'website',
-    },
-  };
+  });
 }
 
 export default function ContactPage() {
