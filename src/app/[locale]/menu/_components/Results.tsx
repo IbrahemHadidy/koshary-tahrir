@@ -4,20 +4,32 @@ import { useTranslations } from 'next-intl';
 import Product from './Product';
 
 interface ResultsProps {
-  searchQuery: string;
+  filter: { query: string; category: MenuItem['category'] | 'all' };
 }
 
 type CategoryTitle = keyof typeof en.menu.categories;
 
-export default function Results({ searchQuery }: ResultsProps) {
+export default function Results({ filter }: ResultsProps) {
   const t = useTranslations('menu.categories');
 
-  // Filter and group menu items by category
-  const filteredMenu = menu.filter(
-    (item) =>
-      item.name.en.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.name.ar.includes(searchQuery)
-  );
+  // Filter menu
+  let filteredMenu;
+  if (filter.category === 'all') {
+    // Filter by query
+    filteredMenu = menu.filter(
+      (item) =>
+        item.name.en.toLowerCase().includes(filter.query.toLowerCase()) ||
+        item.name.ar.includes(filter.query)
+    );
+  } else {
+    // Filter by query and category
+    filteredMenu = menu.filter(
+      (item) =>
+        item.category === filter.category &&
+        (item.name.en.toLowerCase().includes(filter.query.toLowerCase()) ||
+          item.name.ar.includes(filter.query))
+    );
+  }
 
   // Group menu items by category
   const categorizedMenu = filteredMenu.reduce<Record<string, MenuItem[]>>((acc, item) => {

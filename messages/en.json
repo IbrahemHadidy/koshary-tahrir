@@ -72,6 +72,7 @@
     "addToCart": "Add to Cart",
     "currency": "EGP",
     "categories": {
+      "all": "All",
       "koshary": "Koshary",
       "drinks": "Drinks",
       "desserts": "Desserts",

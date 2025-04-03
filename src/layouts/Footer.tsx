@@ -6,7 +6,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-gray-900 text-gray-300">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 py-12 sm:px-6 md:grid-cols-4 lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col flex-wrap justify-between gap-8 px-4 py-12 sm:px-6 md:flex-row lg:px-8">
         <div className="space-y-4">
           <h3 className="text-lg font-semibold text-white">{t('brandName')}</h3>
           <p className="text-sm">{t('tagline')}</p>

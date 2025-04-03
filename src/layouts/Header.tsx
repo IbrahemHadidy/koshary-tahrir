@@ -87,7 +87,7 @@ export default function Header() {
 
             {/* Language Switcher */}
             <Link
-              href="/"
+              href={`/${pathname.split('/').slice(1).join('/')}`}
               locale={isRTL ? 'en' : 'ar'}
               className="cursor-pointer rounded-md bg-amber-100 px-3 py-1 text-sm font-medium text-amber-800 transition-colors hover:bg-amber-200"
             >
