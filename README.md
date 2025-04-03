@@ -70,7 +70,7 @@ A modern redesign of Egypt's iconic restaurant website, featuring enhanced UI/UX
   - Pre-rendered static pages for menu, branches, and product details using `generateStaticParams`
   - Ensured fast load times and SEO optimization for static content.
 - Implemented loading states architecture:
-  - Per-route loading.tsx files for component-level spinners
+  - Per-route loading.tsx files for component-level loaders
   - Skeleton patterns for content transitions
 - Developed error boundary strategy:
   - Global app/not-found.tsx for 404 pages
@@ -96,7 +96,6 @@ A modern redesign of Egypt's iconic restaurant website, featuring enhanced UI/UX
   - RTL layout bugs
   - Z-index conflicts
   - Mobile touch issues
-  - Form validation errors
 - Added professional touches:
   - Custom hover states
   - Focus management
@@ -113,5 +112,5 @@ A modern redesign of Egypt's iconic restaurant website, featuring enhanced UI/UX
 - Added success/error states
 - Implemented smooth animations using custom keyframes
 - Created documentation
-- Optimized build output
 - Conducted user flow testing
+- Deployed to Vercel

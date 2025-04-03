@@ -1,9 +1,10 @@
+import { routing } from '@/i18n/routing';
 import type { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrls = ['', 'branches', 'menu', 'about', 'contact', 'cart'];
 
-  const languages = ['en', 'ar'];
+  const languages = routing.locales;
 
   return languages.flatMap((lang) =>
     baseUrls.map((url) => ({

@@ -1,24 +1,19 @@
 'use client';
 
 import headerNavigation from '@data/navigation';
-import { Link, usePathname, useRouter } from '@i18n/navigation';
+import { Link, usePathname } from '@i18n/navigation';
 import Logo from '@images/logo.webp';
 import { Menu, ShoppingCart, X } from 'lucide-react';
-import { useLocale, useTranslations, type Locale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { useState } from 'react';
 
 export default function Header() {
-  const router = useRouter();
   const pathname = usePathname();
   const locale = useLocale();
   const t = useTranslations('header');
 
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-
-  const switchLanguage = (lang: Locale) => {
-    router.push(pathname, { locale: lang });
-  };
 
   const isRTL = locale === 'ar';
   const isCartPage = pathname.includes('/cart');
@@ -91,13 +86,13 @@ export default function Header() {
             </Link>
 
             {/* Language Switcher */}
-            <button
-              onClick={() => switchLanguage(isRTL ? 'en' : 'ar')}
-              name="language"
+            <Link
+              href="/"
+              locale={isRTL ? 'en' : 'ar'}
               className="cursor-pointer rounded-md bg-amber-100 px-3 py-1 text-sm font-medium text-amber-800 transition-colors hover:bg-amber-200"
             >
               {isRTL ? 'EN' : 'ع'}
-            </button>
+            </Link>
           </div>
         </div>
 

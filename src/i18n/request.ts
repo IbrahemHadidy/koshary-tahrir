@@ -4,11 +4,11 @@ import { routing } from './routing';
 
 async function loadLocaleMessages(locale: Locale): Promise<Messages> {
   try {
-    const messagesModule = await import(`../../messages/${locale ?? 'en'}.json`);
+    const messagesModule = await import(`../../messages/${locale}.json`);
     return messagesModule.default;
   } catch (error) {
-    console.error(`Failed to load messages for locale "${locale ?? 'en'}":`, error);
-    throw new Error(`Locale messages not found for "${locale ?? 'en'}"`);
+    console.error(`Failed to load messages for locale "${locale}":`, error);
+    throw new Error(`Locale messages not found for "${locale}"`);
   }
 }
 
