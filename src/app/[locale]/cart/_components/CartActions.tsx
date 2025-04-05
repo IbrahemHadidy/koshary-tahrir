@@ -27,11 +27,11 @@ export default function CartActions({
 
   return (
     <>
-      <div className="rounded-xl bg-white p-6 shadow-md">
+      <div className="rounded-xl bg-white p-4 shadow-md sm:p-6">
         <div className="mb-6 flex items-center justify-between">
           <button
             onClick={() => clearCart()}
-            className="flex cursor-pointer items-center gap-2 px-6 py-3 text-red-600 transition-colors hover:text-red-700"
+            className="flex cursor-pointer items-center gap-2 rounded-full bg-amber-100 px-6 py-3 text-red-600 transition-colors hover:bg-amber-200 hover:text-red-700"
           >
             <Trash2 className="h-5 w-5" />
             {t('clearCart')}
