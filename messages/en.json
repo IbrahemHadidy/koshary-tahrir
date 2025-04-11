@@ -36,6 +36,11 @@
     "description": "The page you're looking for doesn't exist or may have been moved.",
     "goHome": "Go Home"
   },
+  "error": {
+    "title": "Something went wrong",
+    "description": "We couldn’t process your request. Please try again later.",
+    "backHome": "Back to Home"
+  },
   "header": {
     "title": "Koshary Al-Tahrir",
     "menu": "Menu",
